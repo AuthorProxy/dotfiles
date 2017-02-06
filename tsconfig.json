@@ -1,0 +1,29 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "pretty": true,
+    "target": "es5",
+    "module": "commonjs",
+    "sourceMap": true,
+    "diagnostics": true,
+    "alwaysStrict": true,
+    "removeComments": true,
+    "suppressImplicitAnyIndexErrors": true,
+
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "strictNullChecks": true,
+
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+
+    "lib": [
+      "es2015", "es5", "dom"
+    ]
+  }
+}

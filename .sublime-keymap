@@ -1,0 +1,97 @@
+// Licensed by MIT
+// Copyright (c) 2017 Alex Kostyukov
+// https://github.com/AuthorProxy/dotfiles
+
+[
+    // Common
+    { "keys": ["ctrl+z"], "command": "undo" },
+    { "keys": ["ctrl+y"], "command": "redo" },
+    { "keys": ["ctrl+shift+z"], "command": "soft_undo" },
+    { "keys": ["ctrl+shift+y"], "command": "soft_redo" },
+    { "keys": ["ctrl+shift+t"], "command": "reopen_last_file" },
+
+    { "keys": ["ctrl+v"], "command": "paste_and_indent" },
+    { "keys": ["ctrl+shift+v"], "command": "paste" },
+    { "keys": ["ctrl+k", "ctrl+v"], "command": "paste_from_history" },
+
+    // Navigation
+    { "keys": ["ctrl+d"], "command": "find_under_expand" },
+    { "keys": ["ctrl+k", "ctrl+d"], "command": "find_under_expand_skip" },
+
+    { "keys": ["ctrl++"], "command": "jump_forward" },
+    { "keys": ["ctrl+="], "command": "jump_forward" },
+    { "keys": ["ctrl+-"], "command": "jump_back" },
+
+    { "keys": ["ctrl+l"], "command": "expand_selection", "args": {"to": "line"} }, // select line and \n
+    { "keys": ["ctrl+shift+a"], "command": "expand_selection", "args": {"to": "tag"} }, // tag content
+    { "keys": ["ctrl+m"], "command": "move_to", "args": {"to": "brackets"} }, // jump beetween brackets
+    { "keys": ["ctrl+shift+m"], "command": "expand_selection", "args": {"to": "brackets"} }, // bracket content
+    { "keys": ["ctrl+shift+j"], "command": "expand_selection", "args": {"to": "indentation"} }, // idented content
+    { "keys": ["ctrl+shift+space"], "command": "expand_selection", "args": {"to": "scope"} }, // intelligent selection of content
+
+    // Bookmarks
+    { "keys": ["f2"], "command": "toggle_bookmark" },
+    { "keys": ["alt+f2"], "command": "next_bookmark" },
+    { "keys": ["shift+f2"], "command": "prev_bookmark" },
+    { "keys": ["ctrl+shift+f2"], "command": "clear_bookmarks" },
+    { "keys": ["alt+shift+f2"], "command": "select_all_bookmarks" },
+
+
+    // Editor commands
+    { "keys": ["alt+q"], "command": "wrap_lines" }, // intelligent join
+    { "keys": ["ctrl+j"], "command": "join_lines" }, // simple join
+    { "keys": ["ctrl+shift+d"], "command": "duplicate_line" },
+
+    { "keys": ["ctrl+up"], "command": "scroll_lines", "args": {"amount": 15.0 } },
+    { "keys": ["ctrl+down"], "command": "scroll_lines", "args": {"amount": -15.0 } },
+
+    { "keys": ["alt++"], "command": "increase_font_size" },
+    { "keys": ["alt+="], "command": "increase_font_size" },
+    { "keys": ["alt+-"], "command": "decrease_font_size" },
+    { "keys": ["alt+shift++"], "command": "increase_font_size" },
+    { "keys": ["alt+shift+="], "command": "increase_font_size" },
+    { "keys": ["alt+shift+-"], "command": "decrease_font_size" },
+    { "keys": ["ctrl+shift++"], "command": "increase_font_size" },
+    { "keys": ["ctrl+shift+="], "command": "increase_font_size" },
+    { "keys": ["ctrl+shift+-"], "command": "decrease_font_size" },
+
+
+    { "keys": ["ctrl+shift+e"], "command": "slurp_replace_string" }, // copy text to "find and replace"
+    { "keys": ["ctrl+alt+f"], "command": "show_panel", "args": { "panel": "find", "in_selection": true, "reverse": false }, "context": [{ "key": "selection_empty", "operator": "not_equal", "operand": true, "in_selection": true }] }, // find in selection
+    { "keys": ["ctrl+alt+h"], "command": "show_panel", "args": { "panel": "replace", "in_selection": true, "reverse": false }, "context": [{ "key": "selection_empty", "operator": "not_equal", "operand": true, "in_selection": true }] }, // replace in selection
+
+    { "keys": ["ctrl+alt+shift+up"], "command": "bh_key", "args": { "no_outside_adj": true, "lines" : true, "plugin": { "type": ["__all__"], "command": "bh_modules.bracketselect", "args": {"select": "left"}}}},
+    { "keys": ["ctrl+alt+shift+down"], "command": "bh_key", "args": { "no_outside_adj": true, "lines" : true, "plugin": { "type": ["__all__"], "command": "bh_modules.bracketselect", "args": {"select": "right"}}}},
+
+
+    // Samples and other
+    { "keys": ["ctrl+enter"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Add Line.sublime-macro"} },
+    { "keys": ["ctrl+shift+enter"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Add Line Before.sublime-macro"} },
+
+    { "keys": ["ctrl+backspace"], "command": "delete_word", "args": { "forward": false } },
+    { "keys": ["ctrl+shift+backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete to Hard BOL.sublime-macro"} },
+
+    { "keys": ["ctrl+delete"], "command": "delete_word", "args": { "forward": true } },
+    { "keys": ["ctrl+shift+delete"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete to Hard EOL.sublime-macro"} },
+
+    {"keys": ["ctrl+alt+shift+r"], "command": "reindent", "args": {"single_line": false}},
+    {
+        "args": { "name": "Packages/XML/long-tag.sublime-snippet" },
+        "command": "insert_snippet",
+        "keys": [ "ctrl+alt+shift+home" ]
+    },
+
+    // Macros test
+    { "keys" : ["ctrl+shift+k"], "command": "run_macro", "args": {"file": "test_macros"} }
+
+    //Duplicates:
+    //ctrl+x - ctrl+shift+k
+    //ctrl+shift+del - ctrl+kk
+
+
+    // Some useful commands info:
+    // sublime.log_commands(True)
+    // https://github.com/guillermooo/sublime-undocs/blob/sublime-text-3/source/reference/commands.rst
+    // http://docs.sublimetext.info/en/latest/reference/build_systems.html
+    // http://docs.sublimetext.info/en/latest/reference/commands.html
+]
