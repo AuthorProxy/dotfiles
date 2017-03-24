@@ -1,0 +1,121 @@
+// Licensed by MIT
+// Copyright (c) 2017 Alex Kostyukov
+// https://github.com/AuthorProxy/dotfiles
+
+{
+    "user": {
+        "debug": true,
+        "delay": 0.1,
+        "error_color": "D02000",
+        "gutter_theme": "Packages/SublimeLinter/gutter-themes/Default/Default.gutter-theme",
+        "gutter_theme_excludes": [],
+        "lint_mode": "background",
+        "linters": {
+            "annotations": {
+                "@disable": false,
+                "args": [],
+                "chdir": "${project}",
+                "errors": [
+                    "FIXME"
+                ],
+                "excludes": [],
+                "warnings": [
+                    "TODO",
+                    "README",
+                    "REMARK"
+                ]
+            },
+            "eslint": {
+                "@disable": false,
+                "args": [
+                    // "--ignore-pattern *.min.js",
+                    // "--ignore-path .eslintignore"
+                ],
+                "chdir": "${project}",
+                "excludes": [
+                    "**/node_modules/**",
+                    "**/vendor/**",
+                    "**/build/**",
+                    "*.min.js"
+                ]
+            },
+            "jscs": {
+                "@disable": false,
+                "args": [
+                    "--esnext",
+                    "--verbose"
+                ],
+                "chdir": "${project}",
+                "excludes": [
+                    "*.aspx",
+                    "*.ascx",
+                    "*.Master",
+                    "*.html"
+                ]
+            },
+            "jshint": {
+                "@disable": false,
+                "chdir": "${project}",
+                "excludes": [
+                    "*.jsx",
+                    "*.aspx",
+                    "*.ascx",
+                    "*.Master",
+                    "*.html"
+                ]
+            },
+            "stylelint": {
+                "@disable": false,
+                "args": [],
+                "chdir": "${project}",
+                "excludes": []
+            },
+            "tslint": {
+                "@disable": false,
+                "args": [],
+                "chdir": "${project}",
+                "excludes": [
+                    "**/node_modules/**",
+                    "**/vendor/**",
+                    "**/build/**",
+                    "*.min.ts"
+                ]
+            }
+        },
+        "mark_style": "solid underline",
+        "no_column_highlights_line": false,
+        "passive_warnings": true,
+        "paths": {
+            "linux": [],
+            "osx": [],
+            "windows": [
+                "~\\AppData\\Roaming\npm\\jshint.cmd",
+                "~\\AppData\\Roaming\npm\\jscs.cmd",
+                "~\\AppData\\Roaming\npm\\eslint.cmd",
+                "~\\AppData\\Roaming\npm\\tslint.cmd",
+                "~\\AppData\\Roaming\npm\\stylelint.cmd"
+            ]
+        },
+        "python_paths": {
+            "linux": [],
+            "osx": [],
+            "windows": []
+        },
+        "rc_search_limit": 0,
+        "shell_timeout": 10,
+        "show_errors_on_save": true,
+        "show_marks_in_minimap": true,
+        "syntax_map": {
+            "html (django)": "html",
+            "html (rails)": "html",
+            "html 5": "html",
+            "javascript (babel)": "javascript",
+            "magicpython": "python",
+            "php": "html",
+            "python django": "python",
+            "pythonimproved": "python"
+        },
+        "warning_color": "DDB700",
+        "wrap_find": true
+    }
+}
