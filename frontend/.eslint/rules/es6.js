@@ -18,7 +18,7 @@ module.exports = {
   },
   rules: {
     // require braces in arrow function body
-    'arrow-body-style': ['error', 'as-needed', { requireReturnForObjectLiteral: true }],
+    'arrow-body-style': ['error', 'as-needed', { requireReturnForObjectLiteral: false }],
 
     // require parens in arrow function arguments
     'arrow-parens': ['error', 'as-needed', { requireForBlockBody: false }],
@@ -33,10 +33,10 @@ module.exports = {
     'generator-star-spacing': ['error', { before: false, after: true }],
 
     // disallow modifying variables of class declarations
-    'no-class-assign': 'error',
+    'no-class-assign': 'error', // TODO: maybe 0 for React HOCs
 
     // disallow arrow functions where they could be confused with comparisons
-    'no-confusing-arrow': 'off',
+    'no-confusing-arrow': ['error', { allowParens: true }],
 
     // disallow modifying variables that are declared using const
     'no-const-assign': 'error',
@@ -83,7 +83,7 @@ module.exports = {
       array: true,
       object: true
     }, {
-      enforceForRenamedProperties: true
+      enforceForRenamedProperties: false
     }],
 
     // disallow parseint() in favor of binary, octal, and hexadecimal literals

@@ -1,0 +1,14 @@
+{
+  "presets": [["env", {
+    "loose": false,
+    "debug": true,
+    "targets": {
+      "uglify": false,
+      "browsers": ["ie >= 9", "> 5%", "last 3 version"]
+    }}], "react", "stage-0"
+  ],
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ]
+}

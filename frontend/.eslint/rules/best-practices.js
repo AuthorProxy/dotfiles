@@ -17,7 +17,7 @@ module.exports = {
     'block-scoped-var': 'error',
 
     // enforce that class methods utilize this
-    'class-methods-use-this': 'error',
+    'class-methods-use-this': 'error', // TODO: maybe 0 for react
 
     // limit cyclomatic complexity
     complexity: ['warn', 20],
@@ -137,7 +137,10 @@ module.exports = {
     'no-octal': 'error',
 
     // disallow reassignment of function parameters
-    'no-param-reassign': ['error', { props: true }],
+    'no-param-reassign': ['error', {
+      props: true,
+      ignorePropertyModificationsFor: ['fn']
+    }],
 
     // disallow use of __proto__
     'no-proto': 'error',
@@ -165,7 +168,7 @@ module.exports = {
     }],
 
     // disallow assignment in return statement
-    'no-return-assign': ['error', 'always'],
+    'no-return-assign': ['error', 'always'], // TODO: maybe 0 for React refs assign
 
     // disallows unnecessary return await
     'no-return-await': 'error',
