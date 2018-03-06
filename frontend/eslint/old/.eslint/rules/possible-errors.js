@@ -1,7 +1,3 @@
-// Licensed by MIT
-// Copyright (c) 2017 Alex Kostyukov
-// https://github.com/AuthorProxy/dotfiles
-
 /* eslint-env node */
 
 /* Possible Errors: http://eslint.org/docs/rules/#possible-errors */

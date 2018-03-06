@@ -1,7 +1,3 @@
-// Licensed by MIT
-// Copyright (c) 2017 Alex Kostyukov
-// https://github.com/AuthorProxy/dotfiles
-
 /* eslint-env node */
 
 /* Node.js and CommonJS: http://eslint.org/docs/rules/#nodejs-and-commonjs */
