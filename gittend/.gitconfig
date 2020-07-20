@@ -1,5 +1,5 @@
 [user]
-	name = Alex Kostyukov
+  name = Alex Kostyukov
   email = kostyukov.alex@hotmail.com
 
 [credential]
@@ -236,9 +236,9 @@
   # TODO: clean
   # show head topics
   # show-branch-commits = git show-branch --topics HEAD
-  # ​lg -g reflog
-  # ​l​g -S find by source
-  # ​​blame -C show source moving
+  # lg -g reflog
+  # lg -S find by source
+  # blame -C show source moving
 
 
 
@@ -282,8 +282,8 @@
   cmd = \"C:\\\\Program Files\\\\KDiff3\\\\kdiff3\" $BASE $LOCAL $REMOTE -o $MERGED
   trustExitCode = true
 [mergetool "sourcetree"]
-	cmd = 'C:/Program Files/KDiff3/kdiff3.exe' \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
-	trustExitCode = true
+  cmd = 'C:/Program Files/KDiff3/kdiff3.exe' \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+  trustExitCode = true
 
 [diff]
   indentHeuristic = true
@@ -297,7 +297,7 @@
   cmd = \"C:\\\\Program Files\\\\KDiff3\\\\kdiff3\" $BASE $LOCAL $REMOTE -o $MERGED
   trustExitCode = true
 [difftool "sourcetree"]
-	cmd = 'C:/Program Files/KDiff3/kdiff3.exe' \"$LOCAL\" \"$REMOTE\"
+  cmd = 'C:/Program Files/KDiff3/kdiff3.exe' \"$LOCAL\" \"$REMOTE\"
 
 [log]
   mailmap = true
