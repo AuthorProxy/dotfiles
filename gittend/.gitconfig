@@ -1,19 +1,16 @@
 [user]
   name = Alex Kostyukov
   email = kostyukov.alex@hotmail.com
-
+  useConfigOnly = true
 [credential]
   helper = wincred
-
 [core]
   pretty = oneline
   quotepath = false
-  editor = subl -abw
-
+  editor = subl -w
   excludesfile = ~/.gitignore
   # attributesfile = ~/.gitattributes
-
-  fscache = yes
+  fscache = true
   preloadindex = true
   pager = less -FRSX
   safecrlf = warn
@@ -21,14 +18,14 @@
   trustctime = false
   whitespace = trailing-space,space-before-tab,cr-at-eol,-indent-with-non-tab
   filemode = false
-
+  compression = 9
+  packedGitLimit = 512m
+  packedGitWindowSize = 512m
 [gui]
   editor = sublime
   historybrowser = gitk
-
 [apply]
   whitespace = fix
-
 [alias]
   ### COMMON BEGIN ###
   ci = !git add -A && git commit -av --allow-empty
@@ -36,12 +33,11 @@
   cia = !git add -A && git amend
   save = !git cm 'WIP'
   wipe = !git ci -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
-
   co = checkout
-  br = branch -vv --color=always
+  br = !git sorted-branches
   st = status -u -s -b
   cp = cherry-pick
-  ls  = ls-files
+  ls = ls-files
   la = !git list-aliases
   ec = !git edit-config
   ign = !git ignored
@@ -51,25 +47,25 @@
   blaming = blame -w
   upstream = !git branch --set-upstream-to=origin/$(git branch-name)
   code-review = difftool origin/master...
-  clean-rep = !git brdone && git reflog expire --expire=now --all && git gc --prune=now
-
+  clean-repository = !git br-done && git reflog expire --expire=now --all && git gc --prune=now
   pushf = !git push --force-with-lease
-  pu    = !git publish
-  unpu  = !git unpublish
-  up    = !git update
+  pu = !git publish
+  unpu = !git unpublish
+  up = !git update-br
   up-sm = !git update-sm
-
   rs = "!f() { git reset --soft HEAD~${1-0}; }; f"
+  rsc = "!f() { git reset --soft ${1}; }; f"
   rh = "!f() { git reset --hard HEAD~${1-0}; }; f"
-
+  rhc = "!f() { git reset --hard ${1}; }; f"
+  cledrop = !git rh && git ls-files --others --exclude-standard | xargs -n 1 git clean -f
   cledry = clean -xdfn
   cleall = !yes | git clean -xdf
-
-  cox = checkout-index # check! check! check!
-  less = -p cat-file -p # check! check! check!
-  reverting = revert -n # revert to staging # check!
+  cox = checkout-index
+  less = -p cat-file -p
+  reverting = revert -n
+  report = "!f() { git shortlog -e --no-merges ${1-master} --not ${2}; }; f"
+  authors = shortlog -se
   ### COMMON END ###
-
 
   ### REBASING BEGIN ###
   reabort = rebase --abort
@@ -81,42 +77,37 @@
   squash = !sh -c 'REV=$(git rev-parse $1) && git commit --squash $@ && git rebase -i --autosquash $REV^' -
 
   # fixup for a file, using the commit where it was last modified
-  fixup-file = "!sh -c '\
-    [ $(git diff          --numstat $1 | wc -l) -eq 1 ] && git add $1 && \
-    [ $(git diff --cached --numstat $1 | wc -l) -eq 1 ] || (echo No changes staged. ; exit 1) && \
-    COMMIT=$(git log -n 1 --pretty=format:"%H" $1) && \
-      git commit --fixup=$COMMIT && \
-      git rebase -i --autosquash $COMMIT~1' -"
+  fixup-file = "!sh -c '    [ $(git diff          --numstat $1 | wc -l) -eq 1 ] && git add $1 &&     [ $(git diff --cached --numstat $1 | wc -l) -eq 1 ] || (echo No changes staged. ; exit 1) &&     COMMIT=$(git log -n 1 --pretty=format:%H $1) &&       git commit --fixup=$COMMIT &&       git rebase -i --autosquash $COMMIT~1' -"
   ### REBASING END ###
 
   ### HISTORY, MERGE AND DIFF BEGIN ###
   get-file = "!f() { git show HEAD~${1-0}:${2}; }; f"
-
-  lg     = log --pretty=format:'%C(bold red)%h %C(white)-%C(bold magenta)%d %C(white)%s %C(bold green)(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --graph
-  lg1    = log --pretty=format:'%C(bold red)%h %C(white)-%C(bold magenta)%d %C(white)%s %C(bold green)(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit
-  lgns   = log --pretty=format:'%C(bold red)%h %C(white)-%C(bold magenta)%d %C(white)%s %C(bold green)(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --graph --name-status
-
-  hist   = log --pretty=format:'%C(bold red)%h %C(white)-%C(bold magenta)%d %C(white)%s %C(bold green)(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --all --graph
-  hist1  = log --pretty=format:'%C(bold red)%h %C(white)-%C(bold magenta)%d %C(white)%s %C(bold green)(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --all
+  get-file-sha = "!f() { git show ${1}:${2}; }; f"
+  lg = log --pretty=format:'%C(bold red)%h %C(white)-%C(bold magenta)%d %C(white)%s %C(bold green)(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --graph
+  lg1 = log --pretty=format:'%C(bold red)%h %C(white)-%C(bold magenta)%d %C(white)%s %C(bold green)(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit
+  lgns = log --pretty=format:'%C(bold red)%h %C(white)-%C(bold magenta)%d %C(white)%s %C(bold green)(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --graph --name-status
+  hist = log --pretty=format:'%C(bold red)%h %C(white)-%C(bold magenta)%d %C(white)%s %C(bold green)(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --all --graph
+  hist1 = log --pretty=format:'%C(bold red)%h %C(white)-%C(bold magenta)%d %C(white)%s %C(bold green)(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --all
   histns = log --pretty=format:'%C(bold red)%h %C(white)-%C(bold magenta)%d %C(white)%s %C(bold green)(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --all --graph --name-status
-
   issues = !sh -c 'git log --oneline $@ | egrep -o [A-Z]+-[0-9]+.* | sort | uniq' -
-  dif       = diff -w --color=always
-  dif2      = diff -w --color-words
-  dif3      = diff -w --color-words=.
-  dih       = diff -w --color=always --staged
-  dhi       = diff -w --color=always --staged
-  diw       = diff -w --color=always --cached
-  dwi       = diff -w --color=always --cached
-  files     = !git lgns $1^..$1
-  changes   = !git diff $1^..$1
-  difw      = diff -w --color=always --word-diff # check, delete and forgot
-  updiff    = log -p --reverse @{u}.. # check! check! check!
-  updif     = !git updiff
+  dif = diff -w --color=always
+  dif2 = diff -w --color-words
+  dif3 = diff -w --color-words=.
+  dih = diff -w --color=always --staged
+  dhi = diff -w --color=always --staged
+  diw = diff -w --color=always --cached
+  dwi = diff -w --color=always --cached
+  files = !git lgns $1^..$1
+  changes = !git diff $1^..$1
+  difw = diff -w --color=always --word-diff
+  updiff = log -p --reverse @{u}..
+  updif = !git updiff
 
   # Merging stuff
   ours = "!f() { git co --ours $@ && git add $@; }; f"
   theirs = "!f() { git co --theirs $@ && git add $@; }; f"
+  allours = !git merge -s recursive -X ours --no-ff
+  alltheirs = !git merge -s recursive -X theirs --no-ff
 
   # Find commits by commit message or source code
   find-ci = "!f() { git log --pretty=format:'%C(bold red)%h %C(white) %C(bold green)%ad %C(bold magenta)%d %C(white)%s %C(bold blue)[%an]%Creset' --decorate --date=short --grep=$1; }; f"
@@ -127,39 +118,45 @@
   find-tags = "!f() { git tag | grep ${1}; }; f"
   find-branch = "!f() { git branch | grep ${1} | head -1; }; f"
   find-branches = "!f() { git branch | grep ${1} }; f"
-  ### HISTORY AND DIFF COMPARE END ###
 
   # under testing
-  brd = "!f() { for k in `git br | perl -pe s/^..//`;do echo -e `git show --date=short --pretty=format:\"%Cgreen%cd %Cblue%cr%Creset\" $k|head -n 1`\\\t$k;done | sort -r; }; f" #check
-  # git br | while read; do echo -e $(git log -1 --format=%ci $(echo "_$REPLY" | awk '{print $2}' | perl -pe 's/\e\[?.*?[\@-~]//g') 2> /dev/null || git log -1 --format=%ci)" $REPLY"; done | sort -r | cut -d ' ' -f -1,4-
-
+  brd = "!f() { for k in `git br | perl -pe s/^..//`;do echo -e `git show --date=short --pretty=format:\"%Cgreen%cd %Cblue%cr%Creset\" $k|head -n 1`\\\t$k;done | sort -r; }; f"
+  ### HISTORY AND DIFF COMPARE END ###
 
   # Helpers
   edit-config = !git config -e --global &
   list-aliases = !git config -l | grep alias | cut -c 7-
   ignored = ls-files -o -i --exclude-standard
-  publish   = "!git push -u origin $(git branch-name)"
-  unpublish = "!git push --delete origin :$(git branch-name)"
-  update    = !git pull --rebase --prune $@ && git submodule update --init --recursive
-  update-sm   = !git pull --rebase --prune $@ && git submodule foreach --recursive git pull origin master
+  publish = !git push -u origin $(git branch-name)
+  unpublish = !git push --delete origin :$(git branch-name)
+  update-br = !git pull --rebase --prune $@ && git submodule update --init --recursive
+  update-br-sm = !git pull --rebase --prune $@ && git submodule foreach --recursive git pull origin master
 
-  branch-name = "!git rev-parse --abbrev-ref HEAD"
-  branch-merged = "!f() { git branch --merged ${1-master} | grep -v "${1-master}"; }; f" # Preview all merged branches
+  # branch helpers
+  branch-name = !git rev-parse --abbrev-ref HEAD
+  branch-merged = "!f() { git branch --merged ${1-master} | grep -v ${1-master}; }; f"
   branch-contains = branch -a --contains
-
+  sorted-branches = branch -ivv --color=always --sort=-committerdate
+  branch-commits = !git show ..master --no-patch
+  sorted-branches-1 = !git sorted-branches --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)'
+  sorted-branches-2 = !git sorted-branches --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 
   # Working with branches
-  go     = !git switch
+  go = !git switch
   switch = "!f() { git find-branch ${1} | xargs -n 1 git co; }; f"
-
   merge-pr = "!f() { git fetch origin ${1-master} && git merge --no-ff FETCH_HEAD; }; f"
   rebase-pr = "!f() { git fetch origin ${1-master} && git rebase FETCH_HEAD; }; f"
-
-  br-done = "!f() { git co ${1-master} && git up && git br-clean ${1-master}; }; f"
-  br-clean = "!f() { git branch-merged ${1-master} | xargs -r git branch -d; }; f"
+  br-head = !git branch -f
+  br-done = "!f() { git co ${1-master} && git up && git br-clean-merged ${1-master}; }; f"
   br-create = "!f() { git co -b \"$1\" 2> /dev/null || git co \"$1\"; }; f"
-  br-markdone = "!f() { git branch | grep "$1" | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f" № rename to done-branchname
-
+  br-markdone = "!f() { git branch | grep $1 | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
+  br-markunstable = "!f() { git branch | grep $1 | cut -c 3- | grep -v unstable | xargs -I{} git branch -m {} unstable-{}; }; f"
+  brr-markunstable = "!f() { git push origin origin/$1:refs/heads/unstable_$1 :$1; }; f"
+  brr-delete = "!f() { git push origin --delete $1; }; f"
+  br-clean-merged = "!f() { git branch-merged ${1-master} | xargs -r git branch -d; }; f"
+  br-clean-gone = "!f() { git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs -r git branch -D; }; f"
+  br-clean-gone-preview = "!f() { git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | echo; }; f"
+  br-clean-all = "!f() { git remote prune origin && git br-clean-merged && git br-clean-gone && git prune && git gc; }; f"
 
   # Working with tags
   go-tag = "!f() { git find-tag ${1} | xargs -n 1 git co; }; f"
@@ -169,16 +166,14 @@
   recreate-tag = "!f() { git tag -d $1 && git push --delete origin :refs/tags/$1 & git tag -a $1; }; f"
   remove-all-tags = !git tag -l | xargs git tag -d && git fetch && git tag -l | xargs -n 1 git push --delete origin && git tag -l | xargs git tag -d
 
-
   ### Stashing
   stashing = stash save -u
-  stp = "!sh -c 'git stash pop' -" # apply
-  stl = "!sh -c 'git stash list' -" # apply
-  stapply = "!sh -c 'git stash apply $1' -" # apply
+  stp = !sh -c 'git stash pop' -
+  stl = !sh -c 'git stash list' -
+  stapply = !sh -c 'git stash apply $1' -
   stunapply = !git stash show -p $1 | git apply -R
-  stdelete = "!sh -c 'git stash drop $1' -" # drop
-  snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
-
+  stdelete = !sh -c 'git stash drop $1' -
+  snapshot = !git stash savesnapshot: $(date)&& git stash applystash@{0}
 
   ### Ignoring files
   untrack = !git assume-unchanged
@@ -187,89 +182,49 @@
   trackall = !git assume-changed-all
   tracked = !git assume-list-all
 
-  assume-list-all = "!git ls-files -v | grep ^h | cut -c 3-"
+  assume-list-all = !git ls-files -v | grep ^h | cut -c 3-
   assume-unchanged = update-index --assume-unchanged
   assume-changed = update-index --no-assume-unchanged
-  assume-unchanged-all = "!git status -u -s | awk {'print $2'} | xargs git assume-unchanged"
-  assume-changed-all = "!git assume-list-all | xargs git assume-changed"
-
-
-  # Get PR For Stash and Github
-  spr = "!sh -c "git fetch origin pull-requests/${1}/from:pr/${1}" -"
-  gpr = "!sh -c "git fetch origin pull/${1}/head:pr/${1}" -"
-
-
-  ### Statistics and GUIs
-  # ungit
-  # curl -s https://gitminer.com/parser.sh | bash
-  # wget -qO- https://gitminer.com/parser.sh | bash
+  assume-unchanged-all = !git status -u -s | awk {'print $2'} | xargs git assume-unchanged
+  assume-changed-all = !git assume-list-all | xargs git assume-changed
+  spr = !sh -c git fetch origin pull-requests/${1}/from:pr/${1} -
+  gpr = !sh -c git fetch origin pull/${1}/head:pr/${1} -
   webui = !python /c/Users/kostyukova/.git-webui/release/libexec/git-core/git-webui
 
-
-  #  TODO: clean
-  # git config --global alias.glog 'log -E -i --grep'
-  # --grep  Search (grep) the log for the specified string or pattern
-  # -E  Use "extended regular expressions" when interpreting the search pattern
-  # Finding files and content inside files (grep)
-  # Find a file path in codebase:
-  f = "!git ls-files | grep -i"
-  # Search/grep your entire codebase for a string:
+  # Greps for a string
   gr = grep -Ii
-  # Grep from root folder:
-  gra = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f" # check
+  gra = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f"
   greping = grep --break --heading --line-number
 
-
-
-
-  # TODO: clean
-  # .bashrc
-  # function ahead_behind {
-  #     curr_branch=$(git rev-parse --abbrev-ref HEAD);
-  #     curr_remote=$(git config branch.$curr_branch.remote);
-  #     curr_merge_branch=$(git config branch.$curr_branch.merge | cut -d / -f 3);
-  #     git rev-list --left-right --count $curr_branch...$curr_remote/$curr_merge_branch | tr -s '\t' '|';
-  # }
-
-  # export PS1="\h:\w[\$(ahead_behind)]$"
-
-  # TODO: clean
-  # show head topics
-  # show-branch-commits = git show-branch --topics HEAD
-  # lg -g reflog
-  # lg -S find by source
-  # blame -C show source moving
-
-
-
-
+  updater = !git update-git-for-windows
 [branch]
   autoSetupMerge = true # checkout --track
   autoSetupRebase = always # pull --rebase
-
+[gc]
+  auto = 256
 [fetch]
   prune = true
 [pull]
   ff = only
+  rebase = true
 [push]
   default = simple
   followTags = true
 [remote]
   pushdefault = origin
-
 [rebase]
-  autosquash = true # TODO: refresh memory
+  autosquash = true
   autostash = true
+  useBuiltin = true
 [rerere]
-  enabled = false # TODO: give another chance?
-  autoupdate = true # autostaging # TODO: refresh memory
-
+  enabled = false
+  autoupdate = true
 [merge]
   ff = false
   log = true
-  #branchdesc = true
   tool = kdiff3
   stat = true
+  #branchdesc = true
   #renormalize = true
   #verbosity = 5
   #defaultToUpstream = true
@@ -279,32 +234,33 @@
   keeptemporaries = false
   writeToTemp = true
 [mergetool "kdiff3"]
-  cmd = \"C:\\\\Program Files\\\\KDiff3\\\\kdiff3\" $BASE $LOCAL $REMOTE -o $MERGED
+  cmd = \"C://Program Files//KDiff3//kdiff3\" $BASE $LOCAL $REMOTE -o $MERGED
   trustExitCode = true
+  path = C:/Program Files/KDiff3/kdiff3.exe
 [mergetool "sourcetree"]
-  cmd = 'C:/Program Files/KDiff3/kdiff3.exe' \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
-  trustExitCode = true
-
+	cmd = 'C:/Program Files/KDiff3/kdiff3.exe' \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
 [diff]
   indentHeuristic = true
   renames = copies
   tool = kdiff3
+  guitool = kdiff3
 [difftool]
   wsErrorHighlight = all
   prompt = false
   keepBackup = false
 [difftool "kdiff3"]
-  cmd = \"C:\\\\Program Files\\\\KDiff3\\\\kdiff3\" $BASE $LOCAL $REMOTE -o $MERGED
+  cmd = \"C://Program Files//KDiff3//kdiff3\" $BASE $LOCAL $REMOTE -o $MERGED
   trustExitCode = true
+  path = C:/Program Files/KDiff3/kdiff3.exe
 [difftool "sourcetree"]
-  cmd = 'C:/Program Files/KDiff3/kdiff3.exe' \"$LOCAL\" \"$REMOTE\"
-
+	cmd = 'C:/Program Files/KDiff3/kdiff3.exe' \"$LOCAL\" \"$REMOTE\"
 [log]
   mailmap = true
 [tag]
-  sort = version:refname # TODO: refresh memory
+  sort = version:refname
 [status]
-  showUntrackedFiles = all # TODO: refresh memory
+  showUntrackedFiles = all
 [grep]
   fullname = true
   lineNumber = true
@@ -332,15 +288,28 @@
   untracked = cyan reverse
   branch = magenta
 [format]
-  pretty = oneline # check # TODO: refresh why check :D
+  pretty = oneline
 [help]
   autocorrect = 50
   format = html
 [commit]
-  template = ~/.git_commit_msg.txt
-
+  template = ~/.gitmessage
 [webui]
   autoupdate = true
 [instaweb]
   local = true
   httpd = moongoose
+[winUpdater]
+  recentlySeenVersion = 2.25.0.windows.1
+[stash]
+  useBuiltin = true
+[http]
+  postBuffer = 2048M
+  maxRequestBuffer = 1024M
+[ssh]
+  postBuffer = 2048M
+  maxRequestBuffer = 1024M
+[pack]
+  deltaCacheSize = 2047m
+  packSizeLimit = 2047m
+  windowMemory = 2047m
