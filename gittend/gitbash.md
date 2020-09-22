@@ -34,9 +34,15 @@ This will display the branch name next to the folder name in the bash prompt.
 
 # Some console utilities
 GIT Windows:
+
   Babun: http://babun.github.io/
+  
   Cmder: http://cmder.net/
+  
   Cygwin: https://www.cygwin.com/
+  
   Powershell: https://github.com/dahlbyk/posh-git
+  
     - (new-object Net.WebClient).DownloadString("http://psget.net/GetPsGet.ps1") | iex
+    
     - Install-Module posh-git
