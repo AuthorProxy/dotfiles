@@ -1,6 +1,6 @@
 {
   "editor.fontFamily": "FiraCode Nerd Font Mono, JetbrainsMono Nerd Font, monospace",
-  "editor.fontSize": 16,
+  "editor.fontSize": 14,
   "editor.fontWeight": "bold",
   "editor.fontLigatures": true,
   "editor.lineHeight": 26,
@@ -25,14 +25,15 @@
     "snippets": "json",
     "*.tpl": "html",
     "*.svg": "xml",
-    "*.ext": "vue"
+    "*.ext": "vue",
+    "*.up": "sql",
+    "*.down": "sql"
   },
   "files.exclude": {
     "**/node_modules/**": true,
     "**/coverage/**": true
   },
   "better-comments.highlightPlainText": true,
-  "dotfiles.repository": "https://github.com/AuthorProxy/dotfiles",
   "prettier.requireConfig": false,
   "prettier.htmlWhitespaceSensitivity": "ignore",
   "prettier.printWidth": 100,
@@ -59,7 +60,6 @@
   "editor.linkedEditing": true,
   "editor.suggest.showMethods": true,
   "editor.suggest.preview": true,
-  "editor.minimap.enabled": false,
   "editor.snippetSuggestions": "top",
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "git.autofetch": "all",
@@ -91,47 +91,8 @@
   "html.format.templating": true,
   "html.format.preserveNewLines": false,
   "css.validate": false,
-  "css.lint": {
-    "boxModel": "ignore",
-    "compatibleVendorPrefixes": "warning",
-    "duplicateProperties": "warning",
-    "float": "warning",
-    "ieHack": "warning",
-    "idSelector": "warning",
-    "important": "warning",
-    "importStatement": "warning",
-    "universalSelector": "warning",
-    "unknownVendorSpecificProperties": "warning",
-    "zeroUnits": "warning"
-  },
   "less.validate": false,
-  "less.lint": {
-    "boxModel": "ignore",
-    "compatibleVendorPrefixes": "warning",
-    "duplicateProperties": "warning",
-    "float": "warning",
-    "ieHack": "warning",
-    "idSelector": "warning",
-    "important": "warning",
-    "importStatement": "warning",
-    "universalSelector": "warning",
-    "unknownVendorSpecificProperties": "warning",
-    "zeroUnits": "warning"
-  },
   "scss.validate": false,
-  "scss.lint": {
-    "boxModel": "ignore",
-    "compatibleVendorPrefixes": "warning",
-    "duplicateProperties": "warning",
-    "float": "warning",
-    "ieHack": "warning",
-    "idSelector": "warning",
-    "important": "warning",
-    "importStatement": "warning",
-    "universalSelector": "warning",
-    "unknownVendorSpecificProperties": "warning",
-    "zeroUnits": "warning"
-  },
   "scss.format.spaceAroundSelectorSeparator": true,
   "npm.enableRunFromFolder": true,
   "js/ts.implicitProjectConfig.checkJs": true,
@@ -158,34 +119,12 @@
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
   "typescriptExplorer.typeTree.view.show.typeParameters": false,
   "typescriptExplorer.typeTree.view.show.baseClass": false,
-
+  "cSpell.diagnosticLevel": "Hint",
   "emmet.includeLanguages": {
     "tpl": "html",
     "vue-html": "html",
     "javascript": "javascriptreact"
   },
-  "[json]": {
-    "editor.detectIndentation": false,
-    "editor.tabSize": 2
-  },
-  "[jsonc]": {
-    "editor.detectIndentation": false,
-    "editor.tabSize": 2
-  },
-  "[python]": {
-    "editor.detectIndentation": false,
-    "editor.renderWhitespace": "trailing",
-    "editor.formatOnSave": false,
-    "editor.tabSize": 4
-  },
-  "python.linting.flake8Args": ["--max-line-length=119"],
-  "python.formatting.blackArgs": ["--line-length", "119"],
-  "python.diagnostics.sourceMapsEnabled": true,
-  "python.linting.enabled": true,
-  "python.linting.banditEnabled": true,
-  "python.linting.flake8Enabled": true,
-  "python.testing.pytestEnabled": true,
-  "python.formatting.provider": "black",
   "jupyter.askForKernelRestart": false,
   "jupyter.exportWithOutputEnabled": true,
   "jupyter.interactiveWindow.textEditor.executeSelection": true,
@@ -193,32 +132,22 @@
     "editor.tabSize": 4
   },
   "csharp.semanticHighlighting.enabled": true,
-  "omnisharp.enableRoslynAnalyzers": true,
-  "omnisharp.enableDecompilationSupport": true,
   "sshfs.configs": [
     {
-      "name": "nb-macos",
-      "username": "ec2-user",
-      "host": "ec2-18-232-107-31.compute-1.amazonaws.com",
-      "privateKeyPath": "$HOME/.ssh/nb_aws_mac.ppk"
-    },
-    {
-      "name": "upcloud",
-      "host": "5.22.208.40",
-      "root": "/etc/openvpn",
+      "name": "aeza",
+      "host": "77.239.96.227",
+      "root": "/",
       "username": "root",
-      "password": true
+      "password": true,
+      "group": "Home"
     }
   ],
   "remote.SSH.showLoginTerminal": true,
-  "gitlens.rebaseEditor.ordering": "asc",
-  // "gitlens.advanced.fileHistoryShowAllBranches": true,
+  "remote.SSH.remotePlatform": {
+    "aeza.vpn": "linux"
+  },
   "gitlens.blame.ignoreWhitespace": true,
-  // "gitlens.views.repositories.compact": true,
-  // "gitlens.views.repositories.includeWorkingTree": true,
-  // "gitlens.views.repositories.showIncomingActivity": true,
   "gitlens.advanced.fileHistoryFollowsRenames": true,
-  "telemetry.telemetryLevel": "off",
   "template-string-converter.autoRemoveTemplateString": true,
   "template-string-converter.addBracketsToProps": true,
   "template-string-converter.convertOutermostQuotes": true,
@@ -231,23 +160,25 @@
   "workbench.settings.useSplitJSON": true,
   "workbench.editor.enablePreviewFromCodeNavigation": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
-  "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Atom One Dark",
-  "workbench.productIconTheme": "icons-carbon",
+  "workbench.iconTheme": "catppuccin-frappe",
+  "workbench.colorTheme": "Catppuccin Frappé",
+  "workbench.preferredLightColorTheme": "Catppuccin Latte",
+  "workbench.preferredDarkColorTheme": "Catppuccin Frappé",
+  "workbench.productIconTheme": "feather-vscode",
   "workbench.colorCustomizations": {
     "activityBar.foreground": "#00f5f5",
-    "activityBarBadge.foreground": "#00f5f5",
+    "activityBarBadge.foreground": "#0e2020",
     "activityBarBadge.background": "#333842",
-    "editorLineNumber.foreground": "#ffa9f182",
+    "editorLineNumber.foreground": "#f682e382",
     "editorCursor.foreground": "#00f5f5",
-    "terminalCursor.background": "#ffa9f182",
-    "terminalCursor.foreground": "#ffa9f182"
+    "terminalCursor.background": "#7bf2b8",
+    "terminalCursor.foreground": "#7bf2b8"
   },
   "material-icon-theme.activeIconPack": "vue_vuex",
   "material-icon-theme.folders.theme": "specific",
   "material-icon-theme.hidesExplorerArrows": false,
   "theme-by-language.themes": {
-    "*": "Atom One Dark",
+    "*": "Catppuccin Frappé",
     "powershell": "PowerShell ISE"
   },
   "debug.allowBreakpointsEverywhere": true,
@@ -303,25 +234,20 @@
     "**/yarn.lock": true,
     ".yarn/**": true
   },
-  "redhat.telemetry.enabled": false,
   "npm.packageManager": "pnpm",
   "security.workspace.trust.untrustedFiles": "newWindow",
   "yaml.schemas": {
     "file:/home/authorproxy/.config/Code/User/globalStorage/amazonwebservices.aws-toolkit-vscode/sam.schema.json": [],
     "file:///home/authorproxy/.config/Code/User/globalStorage/amazonwebservices.aws-toolkit-vscode/sam.schema.json": []
   },
-  "python.analysis.completeFunctionParens": true,
   "json.schemas": [],
-  "jest.jestCommandLine": "yarn test",
-  "jest.showCoverageOnLoad": true,
-  "jest.autoRun": "off",
   "debug.javascript.autoAttachFilter": "smart",
   "debug.javascript.debugByLinkOptions": "off",
   "terminal.integrated.cursorStyleInactive": "",
-  "terminal.integrated.cursorWidth": 6,
+  "terminal.integrated.cursorWidth": 4,
   "terminal.integrated.cursorBlinking": true,
-  "terminal.integrated.fontSize": 14,
-  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.defaultProfile.linux": "fish",
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.profiles.linux": {
     "bash": {
@@ -359,18 +285,8 @@
   "quokka.compactMessageOutput": true,
   "quokka.automaticRestart": true,
   "quokka.suppressExpirationNotifications": true,
-  "aws.telemetry": false,
-  "aws.samcli.enableCodeLenses": true,
-  "aws.samcli.location": "/usr/local/bin/sam",
-  "aws.suppressPrompts": {
-    "regionAddAutomatically": true,
-    "codeWhispererConnectionExpired": true
-  },
-  "java.implementationsCodeLens.enabled": true,
   "java.referencesCodeLens.enabled": true,
   "liveServer.settings.donotShowInfoMsg": true,
-  "accessibility.voice.keywordActivation": "chatInContext",
-  "testing.openTesting": "neverOpen",
   "githubPullRequests.pullBranch": "never",
   "githubPullRequests.fileListLayout": "tree",
   "explorer.fileNesting.enabled": true,
@@ -405,9 +321,7 @@
       "background-image": "linear-gradient(45deg, #141414 25%, transparent 25%, transparent 75%, #fff 75%, #141414), linear-gradient(45deg, #141414 25%, transparent 25%, transparent 75%, #141414 75%, #141414)"
     }
   },
-  "console-ninja.featureSet": "Community",
   "turboConsoleLog.addSemicolonInTheEnd": true,
-  "turboConsoleLog.includeFileNameAndLineNum": false,
   "turboConsoleLog.insertEmptyLineAfterLogMessage": true,
   "turboConsoleLog.logMessagePrefix": "TESTs that's",
   "turboConsoleLog.quote": "'",
@@ -417,23 +331,10 @@
   "autoimport.doubleQuotes": true,
   "autoimport.showNotifications": true,
   "vue.autoInsert.dotValue": true,
+  "console-ninja.showWhatsNew": false,
+  "console-ninja.featureSet": "Community",
   "console-ninja.fontSize": 14,
   "console-ninja.captureFunctions": true,
-  "cSpell.userWords": [
-    "composables",
-    "endregion",
-    "isrc",
-    "llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch",
-    "mbid",
-    "Oidc",
-    "rockbot",
-    "sbid",
-    "tanstack",
-    "Vuelidate",
-    "vueuse",
-    "москва",
-    "ящер"
-  ],
   "todo-tree.general.showActivityBarBadge": true,
   "diffEditor.codeLens": true,
   "diffEditor.ignoreTrimWhitespace": false,
@@ -441,7 +342,6 @@
   "rest-client.defaultHeaders": {
     "authKey": "69810799f4a9b1e83e1b5b7fc5ee17ec"
   },
-  "rest-client.enableTelemetry": false,
   "rest-client.environmentVariables": {
     "local": { "endpoint": "http://localhost:9001" },
     "dev": { "endpoint": "https://dev-api.rockbot.com" },
@@ -452,10 +352,7 @@
   },
   "rest-client.decodeEscapedUnicodeCharacters": true,
   "html-css-class-completion.enableEmmetSupport": true,
-  "window.zoomLevel": -1,
-  "console-ninja.showWhatsNew": false,
   "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "typescript.surveys.enabled": false,
   "typescript.implementationsCodeLens.showOnInterfaceMethods": true,
   "typescript.referencesCodeLens.enabled": true,
   "typescript.referencesCodeLens.showOnAllFunctions": true,
@@ -487,17 +384,16 @@
   },
   "errorLens.delayMode": "debounce",
   "errorLens.fontSize": "14",
-  "errorLens.fontWeight": "bold",
   "errorLens.fontFamily": "FiraCode Nerd Font Mono, JetbrainsMono Nerd Font, monospace",
   "errorLens.severityText": ["🐞 🐞 🐞", "🐝 🐝 🐝", "👀 👀 👀", "🪆 🪆 🪆"],
   "gitlens.autolinks": [
     {
-        "prefix": "ROC-",
-        "url": "https://rockbot.atlassian.net/browse/<num>"
+      "prefix": "ROC-",
+      "url": "https://rockbot.atlassian.net/browse/<num>"
     }
-],
-"workbench.activityBar.location": "top",
-"terminal.integrated.allowedLinkSchemes": [
+  ],
+  "workbench.activityBar.location": "top",
+  "terminal.integrated.allowedLinkSchemes": [
     "file",
     "http",
     "https",
@@ -505,5 +401,59 @@
     "vscode",
     "vscode-insiders",
     "docker-desktop"
-],
+  ],
+  "terminal.external.osxExec": "Ghostty.app",
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "bash",
+      "args": ["-l"],
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh",
+      "args": ["-l"]
+    },
+    "fish": {
+      "path": "fish",
+      "args": ["-l"]
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
+    },
+    "pwsh": {
+      "path": "pwsh",
+      "icon": "terminal-powershell"
+    }
+  },
+  "makefile.configureOnOpen": false,
+  "testing.automaticallyOpenTestResults": "neverOpen",
+  "window.newWindowProfile": "Default",
+  "[hosts]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[github-actions-workflow]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+
+  // TELEMETRY SECTION
+  "telemetry.enableTelemetry": false,
+  "telemetry.telemetryLevel": "off",
+  "redhat.telemetry.enabled": false,
+  "rest-client.enableTelemetry": false,
+  "dotnetAcquisitionExtension.enableTelemetry": false,
+
+  // ------------------------------------------
+  // Catppuccin for VSCode
+  // https://github.com/catppuccin/vscode?tab=readme-ov-file#vscode-settings
+  "editor.semanticHighlighting.enabled": true,
+  "terminal.integrated.minimumContrastRatio": 1,
+  "window.titleBarStyle": "custom",
+  "gopls": {
+    "ui.semanticTokens": true
+  },
+  "catppuccin.accentColor": "green",
+  // ------------------------------------------
+
+  "projectManager.git.baseFolders": ["~/Projects"]
 }
