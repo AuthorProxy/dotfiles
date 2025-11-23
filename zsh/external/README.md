@@ -1,6 +1,6 @@
 # Configure linked git submodules
 
-To add new submodule (for root dotfiles location): `git submodule add https://github.com/catppuccin/warp ./zsh/external/catppuccin-warp`
+To add new submodule (for root dotfiles location): `git submodule add https://github.com/catppuccin/eza ./zsh/external/catppuccin-eza`
 
 ## Catppuccin Ghostty [theme](https://github.com/catppuccin/ghostty)
 
@@ -27,4 +27,11 @@ ln -s $DOT_FILES/zsh/external/catppuccin-zsh/catppuccin-flavors ~/.oh-my-zsh/the
 
 ```sh
 ln -s $DOT_FILES/zsh/external/catppuccin-lsd/themes/catppuccin-frappe/colors.yaml $HOME/.config/lsd/colors.yml
+```
+
+
+## Catppuccin EZA [theme](https://github.com/catppuccin/eza)
+
+```sh
+ln -s $DOT_FILES/zsh/external/catppuccin-eza/themes/frappe/catppuccin-frappe-mauve.yml $HOME/.config/eza/theme.yml
 ```

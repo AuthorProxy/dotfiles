@@ -10,3 +10,6 @@
 [submodule "zsh/external/catppuccin-ghostty"]
 	path = zsh/external/catppuccin-ghostty
 	url = https://github.com/catppuccin/ghostty
+[submodule "zsh/external/catppuccin-eza"]
+	path = zsh/external/catppuccin-eza
+	url = https://github.com/catppuccin/eza
