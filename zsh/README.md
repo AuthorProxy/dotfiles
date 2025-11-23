@@ -4,7 +4,7 @@
 
 * fzf - fuzzy finder
 
-* lsd, eza - modern ls replacements
+* eza, lsd - modern ls replacements
 
 * bat - modern cat replacement
 

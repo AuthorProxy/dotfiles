@@ -5,9 +5,8 @@ To add new submodule (for root dotfiles location): `git submodule add https://gi
 ## Catppuccin OMZ [theme](https://github.com/JannoTjarks/catppuccin-zsh)
 
 ```sh
-mkdir ~/.oh-my-zsh/themes/catppuccin-flavors
-ln $DOT_FILES/zsh/external/catppuccin-zsh/catppuccin.zsh-theme ~/.oh-my-zsh/themes/
-ln $DOT_FILES/zsh/external/catppuccin-zsh/catppuccin-flavors/* ~/.oh-my-zsh/themes/catppuccin-flavors
+ln -s $DOT_FILES/zsh/external/catppuccin-zsh/catppuccin.zsh-theme ~/.oh-my-zsh/themes
+ln -s $DOT_FILES/zsh/external/catppuccin-zsh/catppuccin-flavors ~/.oh-my-zsh/themes/catppuccin-flavors
 ```
 
 ## Catppuccin LSD [theme](https://github.com/catppuccin/lsd)
