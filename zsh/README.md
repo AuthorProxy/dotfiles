@@ -22,16 +22,20 @@
 
 ## OTHER TOOLS
 
+* starship - cross-shell prompt
+
 * nvm - node version manager
 
-* starship - cross-shell prompt
+* ngrock - secure tunnels to localhost
+
+* vivd - generator for LS_COLORS env variable
 
 * warp-cli - AI-powered terminal
 
 ## Installation
 
-* brew install ngrok nvm starship
-
-* brew install fzf lsd eza bat ripgrep mtr fd git-delta procs zoxide
+* brew install starship nvm ngrok vivid
 
 * brew tap warpdotdev/warp && brew update && brew install --cask warp-cli
+
+* brew install fzf lsd eza bat ripgrep mtr fd git-delta procs zoxide

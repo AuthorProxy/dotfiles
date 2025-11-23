@@ -2,6 +2,20 @@
 
 To add new submodule (for root dotfiles location): `git submodule add https://github.com/catppuccin/warp ./zsh/external/catppuccin-warp`
 
+## Catppuccin Ghostty [theme](https://github.com/catppuccin/ghostty)
+
+```sh
+mkdir -p $HOME/.warp/themes
+ln -s $DOT_FILES/zsh/external/catppuccin-warp/themes $HOME/.warp/themes/cattppuccin
+```
+
+## Catppuccin WARP [theme](https://github.com/catppuccin/warp)
+
+```sh
+mkdir -p $HOME/.warp/themes
+ln -s $DOT_FILES/zsh/external/catppuccin-warp/themes $HOME/.warp/themes/cattppuccin
+```
+
 ## Catppuccin OMZ [theme](https://github.com/JannoTjarks/catppuccin-zsh)
 
 ```sh
@@ -13,11 +27,4 @@ ln -s $DOT_FILES/zsh/external/catppuccin-zsh/catppuccin-flavors ~/.oh-my-zsh/the
 
 ```sh
 ln -s $DOT_FILES/zsh/external/catppuccin-lsd/themes/catppuccin-frappe/colors.yaml $HOME/.config/lsd/colors.yml
-```
-
-## Catppuccin WARP [theme](https://github.com/catppuccin/warp)
-
-```sh
-mkdir -p $HOME/.warp/themes
-ln -s $DOT_FILES/zsh/external/catppuccin-warp/themes $HOME/.warp/themes/cattppuccin
 ```

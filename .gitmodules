@@ -7,3 +7,6 @@
 [submodule "zsh/external/catppuccin-warp"]
 	path = zsh/external/catppuccin-warp
 	url = https://github.com/catppuccin/warp
+[submodule "zsh/external/catppuccin-ghostty"]
+	path = zsh/external/catppuccin-ghostty
+	url = https://github.com/catppuccin/ghostty
