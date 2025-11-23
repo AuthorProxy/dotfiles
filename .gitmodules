@@ -1,3 +1,6 @@
 [submodule "zsh/external/catppuccin-zsh"]
 	path = zsh/external/catppuccin-zsh
 	url = https://github.com/JannoTjarks/catppuccin-zsh.git
+[submodule "zsh/external/catppuccin-lsd"]
+	path = zsh/external/catppuccin-lsd
+	url = https://github.com/catppuccin/lsd
