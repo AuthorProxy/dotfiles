@@ -5,8 +5,18 @@ To add new submodule (for root dotfiles location): `git submodule add https://gi
 ## Catppuccin Ghostty [theme](https://github.com/catppuccin/ghostty)
 
 ```sh
-mkdir -p $HOME/.warp/themes
-ln -s $DOT_FILES/zsh/external/catppuccin-warp/themes $HOME/.warp/themes/cattppuccin
+ln -s $DOT_FILES/zsh/external/catppuccin-ghostty/themes $XDG_CONFIG_HOME/ghostty/themes
+```
+```properties
+#$> nano $XDG_CONFIG_HOME/ghostty/config
+
+## custom theme from $XDG_CONFIG_HOME/ghostty/themes
+theme = catppuccin-frappe.conf
+
+## or a built-in one
+# theme = Catppuccin Frappe
+
+#... other settings
 ```
 
 ## Catppuccin WARP [theme](https://github.com/catppuccin/warp)
@@ -15,6 +25,8 @@ ln -s $DOT_FILES/zsh/external/catppuccin-warp/themes $HOME/.warp/themes/cattppuc
 mkdir -p $HOME/.warp/themes
 ln -s $DOT_FILES/zsh/external/catppuccin-warp/themes $HOME/.warp/themes/cattppuccin
 ```
+
+
 
 ## Catppuccin OMZ [theme](https://github.com/JannoTjarks/catppuccin-zsh)
 
