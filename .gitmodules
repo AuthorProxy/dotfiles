@@ -16,3 +16,6 @@
 [submodule "zsh/external/catppuccin-lazygit"]
 	path = zsh/external/catppuccin-lazygit
 	url = https://github.com/catppuccin/lazygit
+[submodule "zsh/external/catppuccin-fish"]
+	path = zsh/external/catppuccin-fish
+	url = https://github.com/catppuccin/fish

@@ -27,6 +27,18 @@ ln -s $DOT_FILES/zsh/external/catppuccin-warp/themes $HOME/.warp/themes/cattppuc
 ```
 
 
+## Catppuccin Fish [theme](https://github.com/catppuccin/fish)
+
+```sh
+ln -s $DOT_FILES/zsh/external/catppuccin-fish/themes $XDG_CONFIG_HOME/fish/themes
+```
+```sh
+# bash$> fish
+# fish$> fish_config
+to run local webui where you can choose theme or run
+# fish$> fish_config theme save "Catppuccin Frappe"
+```
+
 
 ## Catppuccin OMZ [theme](https://github.com/JannoTjarks/catppuccin-zsh)
 
