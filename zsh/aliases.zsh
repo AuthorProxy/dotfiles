@@ -1,8 +1,19 @@
 ### ALIASES ###
 # helpers
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
+alias ccd='clear && cd'
+alias mkdir="mkdir -p"
+alias h="history"
+alias path="command -v" # the actual path of the command to be executed
+alias which="type -a" # aliases, functions, built-ins, showing all shell interpretations.
+alias which2="whereis" # locate the binary, source, and manual page files for a command
+
+alias -g ...="../.."
+alias -g ....="../../.."
+alias -g .....="../../../.."
+
 alias reload="source ~/.zshrc"
 alias vpn-start="scutil --nc start \"Streisand\""
 alias vpn-stop="scutil --nc stop \"Streisand\""
@@ -14,7 +25,7 @@ alias ls2="lsd --almost-all --long --git --group-directories-first --date='+%d %
 alias cd="z"
 alias grep="rg --hidden -C 2 --smart-case"
 alias highlight="grep --passthru"
-alias h="highlight"
+alias hl="highlight"
 alias less="delta"
 alias ps="procs"
 alias cat="bat"
@@ -22,6 +33,8 @@ alias clip="pbcopy"
 alias copy="pbcopy"
 
 # tools
+alias tmux="tmux -2"
+alias edit=nvim
 alias lg=lazygit
 alias pn=pnpm
 alias qs="open -a /Applications/QSpace\ Pro.app/Contents/MacOS/QSpace\ Pro"
