@@ -24,6 +24,10 @@
 
 * starship - cross-shell prompt
 
+* lazygit - terminal-based git ui
+
+* nvim (neovim) - hyperextensible Vim-based text editor
+
 * nvm - node version manager
 
 * ngrock - secure tunnels to localhost
@@ -34,7 +38,7 @@
 
 ## Installation
 
-* brew install starship nvm ngrok vivid
+* brew install starship lazygit neovim nvm ngrok vivid
 
 * brew tap warpdotdev/warp && brew update && brew install --cask warp-cli
 

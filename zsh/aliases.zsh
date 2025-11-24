@@ -22,6 +22,7 @@ alias clip="pbcopy"
 alias copy="pbcopy"
 
 # tools
+alias lg=lazygit
 alias pn=pnpm
 alias qs="open -a /Applications/QSpace\ Pro.app/Contents/MacOS/QSpace\ Pro"
 

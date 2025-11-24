@@ -13,3 +13,6 @@
 [submodule "zsh/external/catppuccin-eza"]
 	path = zsh/external/catppuccin-eza
 	url = https://github.com/catppuccin/eza
+[submodule "zsh/external/catppuccin-lazygit"]
+	path = zsh/external/catppuccin-lazygit
+	url = https://github.com/catppuccin/lazygit
