@@ -1,5 +1,5 @@
 #  External prompts and commands
-
+source $DOT_FILES/zsh/tools/tools.tab-suggestions.zsh
 source $DOT_FILES/zsh/tools/tools.bat.zsh
 
 
