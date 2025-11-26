@@ -15,15 +15,16 @@ alias -g ....="../../.."
 alias -g .....="../../../.."
 
 alias reload="source ~/.zshrc"
-alias vpn-start="scutil --nc start \"Streisand\""
-alias vpn-stop="scutil --nc stop \"Streisand\""
+alias nproc="sysctl -n hw.physicalcpu" # macOS equivalent of nproc
+alias vpn-start="scutil --nc start \"v2RayTun\""
+alias vpn-stop="scutil --nc stop \"v2RayTun\""
 
 # system tools replacements or renamings
 alias find="fd --hidden --exclude .git --exclude node_modules"
 alias ls="eza --almost-all --long --git --icons --group-directories-first --octal-permissions --time-style='+%d %b, %Y %H:%M'"
 alias ls2="lsd --almost-all --long --git --group-directories-first --date='+%d %b, %Y %H:%M' --blocks=permission,user,size,date,git,name"
 alias cd="z"
-alias grep="rg --hidden -C 2 --smart-case"
+alias grep="rg --hidden --smart-case -C 2"
 alias highlight="grep --passthru"
 alias hl="highlight"
 alias less="delta"
@@ -31,12 +32,14 @@ alias ps="procs"
 alias cat="bat"
 alias clip="pbcopy"
 alias copy="pbcopy"
+alias vi="nvim"
+alias vim="nvim"
 
 # tools
 alias tmux="tmux -2"
-alias edit=nvim
-alias lg=lazygit
-alias pn=pnpm
+alias edit="nvim"
+alias lg="lazygit"
+alias pn="pnpm"
 alias qs="open -a /Applications/QSpace\ Pro.app/Contents/MacOS/QSpace\ Pro"
 
 # nb work aliases

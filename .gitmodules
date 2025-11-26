@@ -19,3 +19,6 @@
 [submodule "zsh/external/catppuccin-fish"]
 	path = zsh/external/catppuccin-fish
 	url = https://github.com/catppuccin/fish
+[submodule "zsh/external/lazyvim-starter"]
+	path = zsh/external/lazyvim-starter
+	url = https://github.com/AuthorProxy/lazyvim-starter

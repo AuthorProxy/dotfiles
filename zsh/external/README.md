@@ -7,8 +7,9 @@ To add new submodule (for root dotfiles location): `git submodule add https://gi
 ```sh
 ln -s $DOT_FILES/zsh/external/catppuccin-ghostty/themes $XDG_CONFIG_HOME/ghostty/themes
 ```
+
 ```properties
-#$> nano $XDG_CONFIG_HOME/ghostty/config
+# sh$> nano $XDG_CONFIG_HOME/ghostty/config
 
 ## custom theme from $XDG_CONFIG_HOME/ghostty/themes
 theme = catppuccin-frappe.conf
@@ -26,19 +27,18 @@ mkdir -p $HOME/.warp/themes
 ln -s $DOT_FILES/zsh/external/catppuccin-warp/themes $HOME/.warp/themes/cattppuccin
 ```
 
-
 ## Catppuccin Fish [theme](https://github.com/catppuccin/fish)
 
 ```sh
 ln -s $DOT_FILES/zsh/external/catppuccin-fish/themes $XDG_CONFIG_HOME/fish/themes
 ```
+
 ```sh
-# bash$> fish
+# sh$> fish
 # fish$> fish_config
 to run local webui where you can choose theme or run
 # fish$> fish_config theme save "Catppuccin Frappe"
 ```
-
 
 ## Catppuccin OMZ [theme](https://github.com/JannoTjarks/catppuccin-zsh)
 
@@ -53,13 +53,11 @@ ln -s $DOT_FILES/zsh/external/catppuccin-zsh/catppuccin-flavors ~/.oh-my-zsh/the
 ln -s $DOT_FILES/zsh/external/catppuccin-lsd/themes/catppuccin-frappe/colors.yaml $XDG_CONFIG_HOME/lsd/colors.yml
 ```
 
-
 ## Catppuccin EZA [theme](https://github.com/catppuccin/eza)
 
 ```sh
 ln -s $DOT_FILES/zsh/external/catppuccin-eza/themes/frappe/catppuccin-frappe-mauve.yml $XDG_CONFIG_HOME/eza/theme.yml
 ```
-
 
 ## Catppuccin LazyGit [theme](https://github.com/catppuccin/lazygit/tree/main?tab=readme-ov-file#if-you-want-to-use-our-preset)
 
@@ -67,9 +65,21 @@ ln -s $DOT_FILES/zsh/external/catppuccin-eza/themes/frappe/catppuccin-frappe-mau
 ln -s $DOT_FILES/zsh/external/catppuccin-lazygit/themes-mergable/frappe/mauve.yml $XDG_CONFIG_HOME/lazygit/catppuccin-frappe.yml
 ```
 
+## NeoVim + LazyVim + Catppuccin [theme](https://www.lazyvim.org/plugins/colorscheme)
 
-## Catppuccin NVIM [theme](https://github.com/catppuccin/https://github.com/catppuccin/nvim)
+FirstL: install NeoVim with brew
+
+Second: download lazyvim-starter fork (with already setuped catppuccin theme) and make symlink
 
 ```sh
-ln -s $DOT_FILES/zsh/external/catppuccin-lazygit/themes-mergable/frappe/mauve.yml $XDG_CONFIG_HOME/lazygit/theme.yml
+ln -s $DOT_FILES/zsh/external/lazyvim-starter $XDG_CONFIG_HOME/nvim
 ```
+
+Third: check that all dependencies are installed
+
+```sh
+# sh$> nvim
+# nvim$> :checkhealth
+```
+
+### git clone <https://github.com/zsh-users/zsh-syntax-highlighting.git>
