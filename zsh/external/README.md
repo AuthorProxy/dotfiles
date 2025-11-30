@@ -1,6 +1,13 @@
 # Configure linked git submodules
 
-To add new submodule (for root dotfiles location): `git submodule add https://github.com/catppuccin/eza ./zsh/external/catppuccin-eza`
+To add new submodule (for root dotfiles location):
+`git submodule add --depth 1 https://github.com/catppuccin/eza ./zsh/external/catppuccin-eza`
+
+To add directly just for reference, better to use submodules
+
+```sh
+wget -P "$(bat --config-dir)/themes" <https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Frappe.tmTheme>
+```
 
 ## Catppuccin Ghostty [theme](https://github.com/catppuccin/ghostty)
 
@@ -82,4 +89,14 @@ Third: check that all dependencies are installed
 # nvim$> :checkhealth
 ```
 
-### git clone <https://github.com/zsh-users/zsh-syntax-highlighting.git>
+## ZSH Syntax Highlighting + Catppuccin [theme]
+
+```sh
+ln -s $DOT_FILES/zsh/external/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh $XDG_CONFIG_HOME/ghostty/themes
+```
+
+## OBS Studio Catppuccin [theme](https://github.com/catppuccin/obs)
+
+```sh
+ln -s "$DOT_FILES/zsh/external/catppuccin-obs/themes" "$HOME/Library/Application Support/obs-studio/themes"
+```

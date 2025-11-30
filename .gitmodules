@@ -22,3 +22,18 @@
 [submodule "zsh/external/lazyvim-starter"]
 	path = zsh/external/lazyvim-starter
 	url = https://github.com/AuthorProxy/lazyvim-starter
+[submodule "zsh/external/zsh-syntax-highlighting"]
+	path = zsh/external/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
+[submodule "zsh/external/catppuccin-zsh-syntax-highlighting"]
+	path = zsh/external/catppuccin-zsh-syntax-highlighting
+	url = https://github.com/catppuccin/zsh-syntax-highlighting.git
+[submodule "zsh/external/zsh-transient-prompt"]
+	path = zsh/external/zsh-transient-prompt
+	url = https://github.com/olets/zsh-transient-prompt/
+[submodule "zsh/external/zsh/external/obs-studio"]
+	path = zsh/external/zsh/external/obs-studio
+	url = https://github.com/catppuccin/obs
+[submodule "zsh/external/catppuccin-obs"]
+	path = zsh/external/catppuccin-obs
+	url = https://github.com/catppuccin/obs
