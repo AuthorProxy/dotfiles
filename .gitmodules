@@ -37,3 +37,6 @@
 [submodule "zsh/external/catppuccin-obs"]
 	path = zsh/external/catppuccin-obs
 	url = https://github.com/catppuccin/obs
+[submodule "zsh/external/catppuccin-fzf"]
+	path = zsh/external/catppuccin-fzf
+	url = https://github.com/catppuccin/fzf
