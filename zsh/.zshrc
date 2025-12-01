@@ -1,3 +1,8 @@
+# set correction on
+setopt CORRECT
+
+export LANG="en_US.UTF-8"
+
 # Brew installation
 export HOMEBREW_BAT=1
 export HOMEBREW_NO_ENV_HINTS=true
@@ -19,8 +24,15 @@ else
   export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 fi
 
-# Setup LS Colors to use catppuccin theme
+# Setup 'ls <tab>' to use catppuccin theme
 export LS_COLORS="$(vivid generate catppuccin-mocha)"
+export ZLS_COLORS="$LS_COLORS"
+
+zmodload zsh/complist
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+# Setup prompt correction to use catppuccin theme
+export SPROMPT=$'zsh: correct \e[38;2;231;130;132m%R\e[0m to \e[38;2;166;209;137m%r\e[0m [\e[38;2;202;158;230mN\e[38;2;239;159;118my\e[38;2;140;170;238ma\e[38;2;129;200;190me\e[0m]?'
 
 ## Enable persistent history
 HISTFILE=~/.zsh_history
@@ -38,15 +50,11 @@ fi
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-
 ## Parallelize make builds
 # cores=$(expr $(nproc) / 2) # [UBUNTU]
 cores=$(expr $(sysctl -n hw.physicalcpu) / 2) # [MACOS]
 export MAKEFLAGS="-j$cores -O"
 # export GNUMAKEFLAGS="-j$cores -O" # 4.x version
-
-source $DOT_FILES/zsh/aliases.zsh
-source $DOT_FILES/zsh/tools/init.zsh
 
 test_inf() {
   while :; do
@@ -55,16 +63,8 @@ test_inf() {
   done
 }
 
-_fzf_comprun() {
-  local command=$1
-  shift
-
-  case "$command" in
-    cd)           fzf "$@" --preview "lsd --almost-all --long --git --group-directories-first --blocks='git,name' --tree {} | head -200" ;;
-    *)            fzf "$@" ;;
-  esac
-}
-
+source $DOT_FILES/zsh/aliases.zsh
+source $DOT_FILES/zsh/tools/init.zsh
 autoload -Uz compinit && compinit
 
 # should be last to correctly enable syntax highlighting

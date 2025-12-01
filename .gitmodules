@@ -40,3 +40,6 @@
 [submodule "zsh/external/catppuccin-fzf"]
 	path = zsh/external/catppuccin-fzf
 	url = https://github.com/catppuccin/fzf
+[submodule "zsh/external/zsh-autosuggestions"]
+	path = zsh/external/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions

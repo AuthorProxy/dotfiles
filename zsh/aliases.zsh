@@ -14,6 +14,7 @@ alias -g ...="../.."
 alias -g ....="../../.."
 alias -g .....="../../../.."
 
+alias lnse='f() { if [ ! -e "$1" ]; then echo "Error: source file \"$1\" does not exist"; return 1; fi; ln -s "$1" "$2"; }; f'
 alias reload="source ~/.zshrc"
 alias nproc="sysctl -n hw.physicalcpu" # macOS equivalent of nproc
 alias vpn-start="scutil --nc start \"v2RayTun\""
@@ -23,7 +24,6 @@ alias vpn-stop="scutil --nc stop \"v2RayTun\""
 alias find="fd --hidden --exclude .git --exclude node_modules"
 alias ls="eza --almost-all --long --git --icons --group-directories-first --octal-permissions --time-style='+%d %b, %Y %H:%M'"
 alias ls2="lsd --almost-all --long --git --group-directories-first --date='+%d %b, %Y %H:%M' --blocks=permission,user,size,date,git,name"
-alias cd="z"
 alias grep="rg --hidden --smart-case -C 2"
 alias highlight="grep --passthru"
 alias hl="highlight"
@@ -38,7 +38,6 @@ alias vim="nvim"
 # sometime you need the old commands
 alias _find="command find"
 alias _ls="command ls"
-alias _cd="command cd"
 alias _grep="command grep"
 
 # tools
