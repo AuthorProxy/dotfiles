@@ -18,3 +18,4 @@ source $DOT_FILES/zsh/external/catppuccin-fzf/themes/catppuccin-fzf-frappe.sh
 eval "$(zoxide init zsh)"
 
 source $DOT_FILES/zsh/tools/tools.custom-snippets.zsh
+source $DOT_FILES/zsh/tools/tools.git.zsh
