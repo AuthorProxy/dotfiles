@@ -43,3 +43,6 @@
 [submodule "zsh/external/zsh-autosuggestions"]
 	path = zsh/external/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "zsh/external/proxy-yazi"]
+	path = zsh/external/proxy-yazi
+	url = git@github.com:AuthorProxy/proxy-yazi.git

@@ -66,6 +66,12 @@ ln -s $DOT_FILES/zsh/external/catppuccin-lsd/themes/catppuccin-frappe/colors.yam
 ln -s $DOT_FILES/zsh/external/catppuccin-eza/themes/frappe/catppuccin-frappe-mauve.yml $XDG_CONFIG_HOME/eza/theme.yml
 ```
 
+## Yazi + Catppuccin [theme](https://github.com/yazi-rs/flavors)
+
+```sh
+ln -s $DOT_FILES/zsh/external/proxy-yazi/yazi $XDG_CONFIG_HOME/yazi
+```
+
 ## Catppuccin LazyGit [theme](https://github.com/catppuccin/lazygit/tree/main?tab=readme-ov-file#if-you-want-to-use-our-preset)
 
 ```sh

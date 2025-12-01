@@ -44,9 +44,6 @@ alias _grep="command grep"
 alias tmux="tmux -2"
 alias vt="nvim -c 'terminal' -c 'wincmd o'"
 
-alias fzf='fzf -m --pointer='󱨚' --marker='󱨚' --border=horizontal --border-label="| 4 8 15 16 23 42 |" --border-label-pos=-5 --preview "[ -f {} ] && bat --color=always --style=numbers --line-range=:500 {} || echo {}"'
-alias _fzf="command fzf"
-
 alias lg="lazygit"
 alias pn="pnpm"
 alias qs="open -a /Applications/QSpace\ Pro.app/Contents/MacOS/QSpace\ Pro"
