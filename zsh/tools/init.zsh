@@ -12,6 +12,7 @@ export PATH="/usr/local/sbin:$PATH"
 
 # fzf key bindings and fuzzy completion ##
 source <(fzf --zsh)
+source $DOT_FILES/zsh/external/catppuccin-fzf/themes/catppuccin-fzf-frappe.sh
 
 # Zoxide (cd analog) ##
 eval "$(zoxide init zsh)"
