@@ -1,5 +1,6 @@
 # CLI EVERYDAY TOOLS
 
+- git and git-credential-manager-core
 - atuin - modern shell history manager
 - fzf - fuzzy finder
 - eza, lsd - modern ls replacements
@@ -12,7 +13,7 @@
 - fd - modern find replacement
 - jq - json data processor
 - yq - json, yaml, xml, ini and others data processor
-- delta - modern git diff replacement
+- delta (git-delta) - modern git diff replacement
 - procs - modern ps replacement
 - z (zoxide) - smarter cd replacement
 
@@ -38,6 +39,7 @@
 
 ## Installation
 
+- brew tap microsoft/git && brew install git && brew install --cask git-credential-manager-core
 - brew install starship lazygit nvm neovim ngrok vivid
 - brew tap warpdotdev/warp && brew update && brew install --cask warp-cli
 - brew install fzf lsd eza bat ripgrep rga ast-grep mtr fd jq yq git-delta procs zoxide
