@@ -11,7 +11,7 @@
 -- <https://github.com/ohmyzsh/ohmyzsh/wiki>
 -- <https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins>
 
-- vim (20 hours)
+- vim (2222 hours)
 -- <https://thevaluable.dev/vim-commands-beginner/>
 
 ## Compare
@@ -37,7 +37,6 @@
 
 - Check gh cli vs gh-f vs others
 -- <https://cli.github.com/>
--- <https://github.com/gennaro-tedesco/gh-f>
 -- <https://github.com/kodepandai/awesome-gh-cli-extensions>
 
 - Check git aliases
