@@ -46,3 +46,6 @@
 [submodule "zsh/external/proxy-yazi"]
 	path = zsh/external/proxy-yazi
 	url = git@github.com:AuthorProxy/proxy-yazi.git
+[submodule "zsh/external/catppuccin-delta"]
+	path = zsh/external/catppuccin-delta
+	url = https://github.com/catppuccin/delta

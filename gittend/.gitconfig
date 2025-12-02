@@ -3,7 +3,7 @@
   email = alexander@nerdybunny.io
   useConfigOnly = true
 [credential]
-  helper = store
+  helper = manager-core
 [core]
   pretty = oneline
   quotepath = false

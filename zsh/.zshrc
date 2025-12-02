@@ -1,6 +1,6 @@
-# set correction on
-setopt CORRECT
-
+# some default settings
+setopt CORRECT # commands correction
+export GPG_TTY=$(tty)
 export LANG="en_US.UTF-8"
 
 # Brew installation

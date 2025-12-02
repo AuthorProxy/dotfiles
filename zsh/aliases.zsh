@@ -1,8 +1,5 @@
 ### ALIASES ###
 # helpers
-alias rm="rm -i"
-alias cp="cp -i"
-alias mv="mv -i"
 alias ccd='clear && cd'
 alias mkdir="mkdir -p"
 alias h="history"
@@ -21,7 +18,11 @@ alias vpn-start="scutil --nc start \"v2RayTun\""
 alias vpn-stop="scutil --nc stop \"v2RayTun\""
 
 # system tools replacements or renamings
-alias find="fd --hidden --exclude .git --exclude node_modules"
+alias rm="rm -i"
+alias cp="cp -i"
+alias mv="mv -i"
+alias fd="fd --hidden --exclude .git --exclude node_modules"
+alias find="fd"
 alias ls="eza --almost-all --long --git --icons --group-directories-first --octal-permissions --time-style='+%d %b, %Y %H:%M'"
 alias ls2="lsd --almost-all --long --git --group-directories-first --date='+%d %b, %Y %H:%M' --blocks=permission,user,size,date,git,name"
 alias grep="rg --hidden --smart-case -C 2"
