@@ -40,8 +40,9 @@ HISTSIZE=100000
 SAVEHIST=100000
 
 ## Completions
-source $HOME/completion-for-pnpm.zsh
-source $HOME/completion-for-ngrok.zsh
+source $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh
+source $DOT_FILES/zsh/tools/pnpm/completion-for-pnpm.zsh
+source $DOT_FILES/zsh/tools/ngrok/completion-for-ngrok.zsh
 if command -v ngrok &>/dev/null; then
   eval "$(ngrok completion)"
 fi
