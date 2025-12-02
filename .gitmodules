@@ -46,3 +46,9 @@
 [submodule "zsh/external/catppuccin-delta"]
 	path = zsh/external/catppuccin-delta
 	url = https://github.com/catppuccin/delta
+[submodule "zsh/external/catppuccin-tmux"]
+	path = zsh/external/catppuccin-tmux
+	url = https://github.com/catppuccin/tmux
+[submodule "zsh/external/tmux-tpm"]
+	path = zsh/external/tmux-tpm
+	url = https://github.com/tmux-plugins/tpm

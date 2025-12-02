@@ -12,7 +12,7 @@ wget -P "$(bat --config-dir)/themes" <https://github.com/catppuccin/bat/raw/main
 ## Catppuccin Ghostty [theme](https://github.com/catppuccin/ghostty)
 
 ```sh
-ln -s $DOT_FILES/zsh/external/catppuccin-ghostty/themes $XDG_CONFIG_HOME/ghostty/themes
+lnse $DOT_FILES/zsh/external/catppuccin-ghostty/themes $XDG_CONFIG_HOME/ghostty/themes
 ```
 
 ```properties
@@ -31,18 +31,19 @@ theme = catppuccin-frappe.conf
 
 ```sh
 mkdir -p $HOME/.warp/themes
-ln -s $DOT_FILES/zsh/external/catppuccin-warp/themes $HOME/.warp/themes/cattppuccin
+lnse $DOT_FILES/zsh/external/catppuccin-warp/themes $HOME/.warp/themes/cattppuccin
 ```
 
 ## Catppuccin Fish [theme](https://github.com/catppuccin/fish)
 
 ```sh
-ln -s $DOT_FILES/zsh/external/catppuccin-fish/themes $XDG_CONFIG_HOME/fish/themes
+lnse $DOT_FILES/zsh/external/catppuccin-fish/themes $XDG_CONFIG_HOME/fish/themes
 ```
 
 ```sh
 # sh$> fish
 # fish$> fish_config
+
 to run local webui where you can choose theme or run
 # fish$> fish_config theme save "Catppuccin Frappe"
 ```
@@ -50,32 +51,41 @@ to run local webui where you can choose theme or run
 ## Catppuccin OMZ [theme](https://github.com/JannoTjarks/catppuccin-zsh)
 
 ```sh
-ln -s $DOT_FILES/zsh/external/catppuccin-zsh/catppuccin.zsh-theme ~/.oh-my-zsh/themes
-ln -s $DOT_FILES/zsh/external/catppuccin-zsh/catppuccin-flavors ~/.oh-my-zsh/themes/catppuccin-flavors
+lnse $DOT_FILES/zsh/external/catppuccin-zsh/catppuccin.zsh-theme ~/.oh-my-zsh/themes
+lnse $DOT_FILES/zsh/external/catppuccin-zsh/catppuccin-flavors ~/.oh-my-zsh/themes/catppuccin-flavors
+```
+
+## TMUX [plugin manager](https://github.com/tmux-plugins/tpm)
+
+```sh
+mkdir -p $XDG_CONFIG_HOME/tmux/plugins
+lnse $DOT_FILES/zsh/external/tmux-tpm $XDG_CONFIG_HOME/tmux/plugins/tpm
+sh $XDG_CONFIG_HOME/tmux/plugins/tpm/bin/install_plugins
+```
+
+## Catppuccin TMUX [theme](https://github.com/catppuccin/tmux)
+
+```sh
+mkdir -p $XDG_CONFIG_HOME/tmux/plugins/catppuccin
+lnse $DOT_FILES/zsh/external/catppuccin-tmux $XDG_CONFIG_HOME/tmux/plugins/catppuccin/tmux
 ```
 
 ## Catppuccin LSD [theme](https://github.com/catppuccin/lsd)
 
 ```sh
-ln -s $DOT_FILES/zsh/external/catppuccin-lsd/themes/catppuccin-frappe/colors.yaml $XDG_CONFIG_HOME/lsd/colors.yml
+lnse $DOT_FILES/zsh/external/catppuccin-lsd/themes/catppuccin-frappe/colors.yaml $XDG_CONFIG_HOME/lsd/colors.yml
 ```
 
 ## Catppuccin EZA [theme](https://github.com/catppuccin/eza)
 
 ```sh
-ln -s $DOT_FILES/zsh/external/catppuccin-eza/themes/frappe/catppuccin-frappe-mauve.yml $XDG_CONFIG_HOME/eza/theme.yml
-```
-
-## Yazi + Catppuccin [theme](https://github.com/yazi-rs/flavors)
-
-```sh
-ln -s $DOT_FILES/zsh/external/proxy-yazi/yazi $XDG_CONFIG_HOME/yazi
+lnse $DOT_FILES/zsh/external/catppuccin-eza/themes/frappe/catppuccin-frappe-mauve.yml $XDG_CONFIG_HOME/eza/theme.yml
 ```
 
 ## Catppuccin LazyGit [theme](https://github.com/catppuccin/lazygit/tree/main?tab=readme-ov-file#if-you-want-to-use-our-preset)
 
 ```sh
-ln -s $DOT_FILES/zsh/external/catppuccin-lazygit/themes-mergable/frappe/mauve.yml $XDG_CONFIG_HOME/lazygit/catppuccin-frappe.yml
+lnse $DOT_FILES/zsh/external/catppuccin-lazygit/themes-mergable/frappe/mauve.yml $XDG_CONFIG_HOME/lazygit/catppuccin-frappe.yml
 ```
 
 ## NeoVim + LazyVim + Catppuccin [theme](https://www.lazyvim.org/plugins/colorscheme)
@@ -85,7 +95,7 @@ FirstL: install NeoVim with brew
 Second: download lazyvim-starter fork (with already setuped catppuccin theme) and make symlink
 
 ```sh
-ln -s $DOT_FILES/zsh/external/lazyvim-starter $XDG_CONFIG_HOME/nvim
+lnse $DOT_FILES/zsh/external/lazyvim-starter $XDG_CONFIG_HOME/nvim
 ```
 
 Third: check that all dependencies are installed
@@ -98,11 +108,11 @@ Third: check that all dependencies are installed
 ## ZSH Syntax Highlighting + Catppuccin [theme]
 
 ```sh
-ln -s $DOT_FILES/zsh/external/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh $XDG_CONFIG_HOME/ghostty/themes
+lnse $DOT_FILES/zsh/external/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh $XDG_CONFIG_HOME/ghostty/themes
 ```
 
 ## OBS Studio Catppuccin [theme](https://github.com/catppuccin/obs)
 
 ```sh
-ln -s "$DOT_FILES/zsh/external/catppuccin-obs/themes" "$HOME/Library/Application Support/obs-studio/themes"
+lnse $DOT_FILES/zsh/external/catppuccin-obs/themes $HOME/Library/Application Support/obs-studio/themes
 ```

@@ -86,8 +86,7 @@
   unstage = reset
   blaming = blame -w
   upstream-sync = !git fetch upstream $(git branch-name) && git rebase FETCH_HEAD
-  code-review = difftool origin/stage...
-  clean-repository = !git br-done && git reflog expire --expire=now --all && git gc --prune=now
+  code-review = difftool origin/master...
   pushf = !git push --force-with-lease
   pu = !git publish
   unpu = !git unpublish
@@ -102,10 +101,11 @@
   clear-drop-dry = !git rh && git ls-files --others --exclude-standard | xargs -n 1 git clean -fn
   clear-all = !yes | git clean -xdf
   clear-all-dry = clean -xdfn
+  clean-full = !git clear-all && git br-done && git reflog expire --expire=24.hours.ago --all && git fsck --full && git gc --prune=now
   cox = checkout-index
   less = -p cat-file -p
   reverting = revert -n
-  report = "!f() { git shortlog -e --no-merges ${1-stage} --not ${2}; }; f"
+  report = "!f() { git shortlog -e --no-merges ${1-master} --not ${2}; }; f"
   authors = shortlog -se
   ### COMMON END ###
 
@@ -123,8 +123,8 @@
   ### REBASING END ###
 
   ### HISTORY, MERGE AND DIFF BEGIN ###
-  get-file-advanced = "!f() { git checkout ${1-stage} -- ${2}; }; f"
-  get-file = "!f() { git get-file-advanced stage ${1}; }; f"
+  get-file-advanced = "!f() { git checkout ${1-master} -- ${2}; }; f"
+  get-file = "!f() { git get-file-advanced master ${1}; }; f"
   revert-file = "!f() { git show HEAD~${1-0}:${2}; }; f"
   revert-file-sha = "!f() { git show ${1}:${2}; }; f"
   lg = log --pretty=format:'%C(bold red)%h %C(white)-%C(bold magenta)%d %C(white)%s %C(bold green)(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --graph
@@ -182,10 +182,10 @@
 
   # Branch helpers
   branch-name = !git rev-parse --abbrev-ref HEAD
-  branch-merged = "!f() { git branch --merged ${1-stage} | grep -v ${1-stage}; }; f"
+  branch-merged = "!f() { git branch --merged ${1-master} | grep -v ${1-master}; }; f"
   branch-contains = branch -a --contains
   sorted-branches = branch -ivv --color=always --sort=-committerdate
-  branch-commits = !git show ..stage --no-patch
+  branch-commits = !git show ..master --no-patch
   sorted-branches-1 = !git sorted-branches --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)'
   sorted-branches-2 = !git sorted-branches --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 
@@ -195,18 +195,18 @@
   merge-to-ours = "!f() { git co ${1-dev} && git pull && git merge --no-ff @{-1} --strategy-option theirs --no-edit; git push; }; f"
   merge-to-ours-and-push = !git merge-to-ours && git push
   merge-rockbot = !git merge-to-ours-and-push && git co -
-  merge-pr = "!f() { git fetch origin ${1-stage} && git merge --no-ff FETCH_HEAD; }; f"
-  rebase-pr = "!f() { git fetch origin ${1-stage} && git rebase FETCH_HEAD; }; f"
+  merge-pr = "!f() { git fetch origin ${1-master} && git merge --no-ff FETCH_HEAD; }; f"
+  rebase-pr = "!f() { git fetch origin ${1-master} && git rebase FETCH_HEAD; }; f"
   rebase-i = !git rebase --rebase-merges -i
   br-upstream = !git branch --set-upstream-to=origin/$(git branch-name)
   br-rename = !git branch -m
-  br-done = "!f() { git co ${1-stage} && git up && git br-clean-merged ${1-stage}; }; f"
+  br-done = "!f() { git co ${1-master} && git up && git br-clean-merged ${1-master}; }; f"
   br-create = "!f() { git co -b \"$1\" 2> /dev/null || git co \"$1\"; }; f"
   br-markdone = "!f() { git branch | grep $1 | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
   br-markunstable = "!f() { git branch | grep $1 | cut -c 3- | grep -v unstable | xargs -I{} git branch -m {} unstable-{}; }; f"
   brr-markunstable = "!f() { git push origin origin/$1:refs/heads/unstable_$1 :$1; }; f"
   brr-delete = "!f() { git push origin --delete $1; }; f"
-  br-clean-merged = "!f() { git branch-merged ${1-stage} | xargs -r git branch -d; }; f"
+  br-clean-merged = "!f() { git branch-merged ${1-master} | xargs -r git branch -d; }; f"
   br-clean-gone = "!f() { git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs -r git branch -D; }; f"
   br-clean-gone-preview = "!f() { git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | echo; }; f"
   br-clean-all = "!f() { git remote prune origin && git br-clean-merged && git br-clean-gone && git prune && git gc; }; f"

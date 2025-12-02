@@ -44,6 +44,26 @@ Settings for different <a href="https://github.com/AuthorProxy/dotfiles">Proxy D
   </a>
 </p>
 
+---
+
+# General Settings
+
+## ZSH
+
+```sh
+alias lnse='f() { if [ ! -e "$1" ]; then echo "Error: source file \"$1\" does not exist"; return 1; fi; ln -s "$1" "$2"; }; f'
+
+lnse $DOT_FILES/zsh/.zshrc $HOME
+lnse $DOT_FILES/zsh/.zshenv $HOME
+lnse $DOT_FILES/zsh/.zprofile $HOME
+
+lnse $DOT_FILES/git/.gitattributes $HOME
+lnse $DOT_FILES/git/.gitconfig $HOME
+lnse $DOT_FILES/git/.gitmessage $HOME
+```
+
+---
+
 [![Pushes and Commits of AuthorProxy/dotfiles](https://next.ossinsight.io/widgets/official/analyze-repo-pushes-and-commits-per-month/thumbnail.png?repo_id=81084900&image_size=auto&color_scheme=dark)](https://next.ossinsight.io/widgets/official/analyze-repo-pushes-and-commits-per-month?repo_id=81084900)
 
 <p align="center">
