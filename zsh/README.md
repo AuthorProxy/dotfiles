@@ -14,7 +14,10 @@
 - jq - json data processor
 - yq - json, yaml, xml, ini and others data processor
 - delta (git-delta) - modern git diff replacement
+- tree - directories tree, required as dependency for forgit
 - procs - modern ps replacement
+- tmux - terminal multiplexer
+- forgit - git console utilities with fzf support
 - z (zoxide) - smarter cd replacement
 
 ## OTHER TOOLS

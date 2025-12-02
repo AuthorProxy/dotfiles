@@ -5,9 +5,9 @@ root: ~/Git/personal-website/
 
 windows:
   - editor:
-      layout: 44d4,179x61,0,0[179x51,0,0,8,179x9,0,52,9]
-      panes:
-        - editor:
+    layout: 44d4,179x61,0,0[179x51,0,0,8,179x9,0,52,9]
+    panes:
+      - editor:
           - nvim
-        - server:
+      - server:
           - hugo server -D --buildFuture

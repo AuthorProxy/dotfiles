@@ -3,7 +3,7 @@
 ## Starship [preset](https://starship.rs/config/)
 
 ```sh
-ln -s $DOT_FILES/zsh/tools/starship/starship.toml $HOME/.config/starship.toml
+lnse $DOT_FILES/zsh/tools/starship/starship.toml $HOME/.config/starship.toml
 ```
 
 ## Warp [themes](https://docs.warp.dev/terminal/appearance/custom-themes#how-do-i-use-a-custom-theme-in-warp)
@@ -12,7 +12,13 @@ ln -s $DOT_FILES/zsh/tools/starship/starship.toml $HOME/.config/starship.toml
 
 ```sh
 mkdir -p $HOME/.warp/themes
-ln -s $DOT_FILES/zsh/tools/warp/themes/fallout $HOME/.warp/themes/fallout
+lnse $DOT_FILES/zsh/tools/warp/themes/fallout $HOME/.warp/themes/fallout
+```
+
+## Yazi + Catppuccin [theme](https://github.com/yazi-rs/flavors)
+
+```sh
+lnse $DOT_FILES/zsh/tools/yazi $XDG_CONFIG_HOME/yazi
 ```
 
 ## qBittorrent [theme](https://github.com/catppuccin/qbittorrent?tab=readme-ov-file#client)

@@ -1,9 +1,9 @@
 [user]
-  name = Alex Kostyukov
-  email = alexander@nerdybunny.io
+	name = Alex Kostyukov
+	email = proxyzavr@gmail.com
   useConfigOnly = true
 [credential]
-  helper = manager-core
+  helper = manager
 [core]
   pretty = oneline
   quotepath = false
@@ -11,8 +11,9 @@
   excludesfile = ~/.gitignore
   fscache = true
   preloadindex = true
-  pager = less -FRSX
+  pager = bat
   safecrlf = warn
+  ignorecase = false
 
   # autocrlf = true
   autocrlf = input
@@ -25,11 +26,44 @@
   compression = 9
   packedGitLimit = 512m
   packedGitWindowSize = 512m
+
+[include]
+	path = ~/Projects/dotfiles/zsh/external/catppuccin-delta/catppuccin.gitconfig
+[interactive]
+  diffFilter = delta --color-only
+[delta]
+  hyperlinks = true
+  hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+  navigate = true
+  side-by-side = true
+  line-numbers = true
+
+### FOR TESTS
+# [delta]
+#     features = side-by-side line-numbers decorations
+#     syntax-theme = Dracula
+#     plus-style = syntax "#003800"
+#     minus-style = syntax "#3f0001"
+
+# [delta "decorations"]
+#     commit-decoration-style = bold yellow box ul
+#     file-style = bold yellow ul
+#     file-decoration-style = none
+#     hunk-header-decoration-style = cyan box ul
+
+# [delta "line-numbers"]
+#     line-numbers-left-style = cyan
+#     line-numbers-right-style = cyan
+#     line-numbers-minus-style = 124
+#     line-numbers-plus-style = 28
+
 [gui]
   editor = code
   historybrowser = gitk
+
 [apply]
   whitespace = fix
+
 [alias]
   debug = !GIT_TRACE=1 git
 
@@ -52,7 +86,7 @@
   unstage = reset
   blaming = blame -w
   upstream-sync = !git fetch upstream $(git branch-name) && git rebase FETCH_HEAD
-  code-review = difftool origin/main...
+  code-review = difftool origin/stage...
   clean-repository = !git br-done && git reflog expire --expire=now --all && git gc --prune=now
   pushf = !git push --force-with-lease
   pu = !git publish
@@ -71,7 +105,7 @@
   cox = checkout-index
   less = -p cat-file -p
   reverting = revert -n
-  report = "!f() { git shortlog -e --no-merges ${1-main} --not ${2}; }; f"
+  report = "!f() { git shortlog -e --no-merges ${1-stage} --not ${2}; }; f"
   authors = shortlog -se
   ### COMMON END ###
 
@@ -85,12 +119,14 @@
   squash = !sh -c 'REV=$(git rev-parse $1) && git commit --squash $@ && git rebase -i --autosquash $REV^' -
 
   # fixup for a file, using the commit where it was last modified
-  fixup-file = "!sh -c '    [ $(git diff          --numstat $1 | wc -l) -eq 1 ] && git add $1 &&     [ $(git diff --cached --numstat $1 | wc -l) -eq 1 ] || (echo No changes staged. ; exit 1) &&     COMMIT=$(git log -n 1 --pretty=format:%H $1) &&       git commit --fixup=$COMMIT &&       git rebase -i --autosquash $COMMIT~1' -"
+  fixup-file = "!sh -c '[ $(git diff --numstat $1 | wc -l) -eq 1 ] && git add $1 && [ $(git diff --cached --numstat $1 | wc -l) -eq 1 ] || (echo No changes staged. ; exit 1) && COMMIT=$(git log -n 1 --pretty=format:%H $1) && git commit --fixup=$COMMIT && git rebase -i --autosquash $COMMIT~1' -"
   ### REBASING END ###
 
   ### HISTORY, MERGE AND DIFF BEGIN ###
-  get-file = "!f() { git show HEAD~${1-0}:${2}; }; f"
-  get-file-sha = "!f() { git show ${1}:${2}; }; f"
+  get-file-advanced = "!f() { git checkout ${1-stage} -- ${2}; }; f"
+  get-file = "!f() { git get-file-advanced stage ${1}; }; f"
+  revert-file = "!f() { git show HEAD~${1-0}:${2}; }; f"
+  revert-file-sha = "!f() { git show ${1}:${2}; }; f"
   lg = log --pretty=format:'%C(bold red)%h %C(white)-%C(bold magenta)%d %C(white)%s %C(bold green)(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --graph
   lg1 = log --pretty=format:'%C(bold red)%h %C(white)-%C(bold magenta)%d %C(white)%s %C(bold green)(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit
   lgns = log --pretty=format:'%C(bold red)%h %C(white)-%C(bold magenta)%d %C(white)%s %C(bold green)(%cr) %C(bold blue)[%an]%Creset' --abbrev-commit --graph --name-status
@@ -127,42 +163,54 @@
   find-tags = "!f() { git tag | grep ${1}; }; f"
   find-branch = "!f() { git branch | grep ${1} | head -1; }; f"
   find-branches = "!f() { git branch | grep ${1} }; f"
+
   # under testing
   brd = "!f() { for k in `git br | perl -pe s/^..//`;do echo -e `git show --date=short --pretty=format:\"%Cgreen%cd %Cblue%cr%Creset\" $k|head -n 1`\\\t$k;done | sort -r; }; f"
-  ### HISTORY AND DIFF COMPARE END ###
+
   # Helpers
+  edit-zshrc = !code ~/.zshrc
+  edit-zshenv = !code ~/.zshenv
+  edit-zprofile = !code ~/.zprofile
   edit-config = !git config -e --global &
   list-aliases = !git config -l | grep alias | cut -c 7-
   ignored = ls-files -o -i --exclude-standard
   publish = !git push -u origin $(git branch-name)
   unpublish = !git push --delete origin $(git branch-name)
   update-br = !git pull --rebase --prune $@ && git submodule update --init --recursive
-  # branch helpers
+  sm-update = !git submodule foreach --recursive
+  sm-delete = !git rm --cached $1 && rm -rf .git/modules/$1 && rm -rf $1
+
+  # Branch helpers
   branch-name = !git rev-parse --abbrev-ref HEAD
-  branch-merged = "!f() { git branch --merged ${1-main} | grep -v ${1-main}; }; f"
+  branch-merged = "!f() { git branch --merged ${1-stage} | grep -v ${1-stage}; }; f"
   branch-contains = branch -a --contains
   sorted-branches = branch -ivv --color=always --sort=-committerdate
-  branch-commits = !git show ..main --no-patch
+  branch-commits = !git show ..stage --no-patch
   sorted-branches-1 = !git sorted-branches --format='%(HEAD)%(color:yellow)%(refname:short)|%(color:bold green)%(committerdate:relative)|%(color:blue)%(subject)|%(color:magenta)%(authorname)%(color:reset)'
   sorted-branches-2 = !git sorted-branches --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+
   # Working with branches
   go = "!f() { git find-branch ${1} | xargs -n 1 git co; }; f"
   merge-to = "!f() { git co ${1-dev} && git pull && git merge --no-ff @{-1}; }; f"
+  merge-to-ours = "!f() { git co ${1-dev} && git pull && git merge --no-ff @{-1} --strategy-option theirs --no-edit; git push; }; f"
+  merge-to-ours-and-push = !git merge-to-ours && git push
+  merge-rockbot = !git merge-to-ours-and-push && git co -
   merge-pr = "!f() { git fetch origin ${1-stage} && git merge --no-ff FETCH_HEAD; }; f"
-  rebase-pr = "!f() { git fetch origin ${1-main} && git rebase FETCH_HEAD; }; f"
+  rebase-pr = "!f() { git fetch origin ${1-stage} && git rebase FETCH_HEAD; }; f"
   rebase-i = !git rebase --rebase-merges -i
   br-upstream = !git branch --set-upstream-to=origin/$(git branch-name)
   br-rename = !git branch -m
-  br-done = "!f() { git co ${1-main} && git up && git br-clean-merged ${1-main}; }; f"
+  br-done = "!f() { git co ${1-stage} && git up && git br-clean-merged ${1-stage}; }; f"
   br-create = "!f() { git co -b \"$1\" 2> /dev/null || git co \"$1\"; }; f"
   br-markdone = "!f() { git branch | grep $1 | cut -c 3- | grep -v done | xargs -I{} git branch -m {} done-{}; }; f"
   br-markunstable = "!f() { git branch | grep $1 | cut -c 3- | grep -v unstable | xargs -I{} git branch -m {} unstable-{}; }; f"
   brr-markunstable = "!f() { git push origin origin/$1:refs/heads/unstable_$1 :$1; }; f"
   brr-delete = "!f() { git push origin --delete $1; }; f"
-  br-clean-merged = "!f() { git branch-merged ${1-main} | xargs -r git branch -d; }; f"
+  br-clean-merged = "!f() { git branch-merged ${1-stage} | xargs -r git branch -d; }; f"
   br-clean-gone = "!f() { git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | xargs -r git branch -D; }; f"
   br-clean-gone-preview = "!f() { git branch -vv | grep 'origin/.*: gone]' | awk '{print $1}' | echo; }; f"
   br-clean-all = "!f() { git remote prune origin && git br-clean-merged && git br-clean-gone && git prune && git gc; }; f"
+
   # Working with tags
   go-tag = "!f() { git find-tag ${1} | xargs -n 1 git co; }; f"
   show-tag = "!f() { git find-tag ${1} | xargs -n 1 git cat-file tag; }; f"
@@ -170,33 +218,7 @@
   rename-tag = "!f() { git tag ${1} ${2} && git tag -d ${2} && git push --delete origin :refs/tags/${2} && git push --tags -f; }; f"
   recreate-tag = "!f() { git tag -d $1 && git push --delete origin :refs/tags/$1 & git tag -a $1; }; f"
   remove-all-tags = !git tag -l | xargs git tag -d && git fetch && git tag -l | xargs -n 1 git push --delete origin && git tag -l | xargs git tag -d
-  ### Stashing
-  stashing = stash save -u
-  stp = !sh -c 'git stash pop' -
-  stl = !sh -c 'git stash list' -
-  stapply = !sh -c 'git stash apply $1' -
-  stunapply = !git stash show -p $1 | git apply -R
-  stdelete = !sh -c 'git stash drop $1' -
-  snapshot = !git stash savesnapshot: $(date)&& git stash applystash@{0}
-  ### Ignoring files
-  untrack = !git assume-unchanged
-  track = !git assume-changed
-  untrackall = !git assume-unchanged-all
-  trackall = !git assume-changed-all
-  tracked = !git assume-list-all
-  assume-list-all = !git ls-files -v | grep ^h | cut -c 3-
-  assume-unchanged = update-index --assume-unchanged
-  assume-changed = update-index --no-assume-unchanged
-  assume-unchanged-all = !git status -u -s | awk {'print $2'} | xargs git assume-unchanged
-  assume-changed-all = !git assume-list-all | xargs git assume-changed
-  spr = !sh -c git fetch origin pull-requests/${1}/from:pr/${1} -
-  gpr = !sh -c git fetch origin pull/${1}/head:pr/${1} -
-  webui = !python /c/Users/kostyukova/.git-webui/release/libexec/git-core/git-webui
-  # Greps for a string
-  gr = grep -Ii
-  gra = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f"
-  greping = grep --break --heading --line-number
-  updater = !git update-git-for-windows
+
 [branch]
   autoSetupMerge = true # checkout --track
   autoSetupRebase = always # pull --rebase
@@ -224,8 +246,9 @@
 [merge]
   ff = false
   log = true
-  tool = code-insiders
+  tool = code
   stat = true
+  conflictStyle = zdiff3
   #branchdesc = true
   #renormalize = true
   #verbosity = 5
@@ -235,15 +258,10 @@
   keepBackup = false
   keeptemporaries = false
   writeToTemp = true
-# [mergetool "kdiff3"]
-#   cmd = \"C://Program Files//KDiff3//kdiff3\" $BASE $LOCAL $REMOTE -o $MERGED
-#   trustExitCode = true
-#   path = C:/Program Files/KDiff3/kdiff3.exe
-# [mergetool "sourcetree"]
-# 	cmd = 'C:/Program Files/KDiff3/kdiff3.exe' \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
-# 	trustExitCode = true
-[mergetool "code-insiders"]
-  cmd = code-insiders --wait --merge $REMOTE $LOCAL $BASE $MERGED
+[mergetool "code"]
+  cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+[delta]
+	features = catppuccin-frappe
 [diff]
   indentHeuristic = true
   renames = copies
@@ -253,12 +271,6 @@
   wsErrorHighlight = all
   prompt = false
   keepBackup = false
-# [difftool "kdiff3"]
-#   cmd = \"C://Program Files//KDiff3//kdiff3\" $BASE $LOCAL $REMOTE -o $MERGED
-#   trustExitCode = true
-#   path = C:/Program Files/KDiff3/kdiff3.exe
-# [difftool "sourcetree"]
-# 	cmd = 'C:/Program Files/KDiff3/kdiff3.exe' \"$LOCAL\" \"$REMOTE\"
 [log]
   mailmap = true
 [tag]
@@ -303,8 +315,6 @@
 [instaweb]
   local = true
   httpd = moongoose
-[winUpdater]
-  recentlySeenVersion = 2.25.0.windows.1
 [stash]
   useBuiltin = true
 [http]
