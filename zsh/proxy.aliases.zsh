@@ -2,7 +2,6 @@
 # helpers
 alias h="history"
 alias ccd='clear && cd'
-alias bat="bat -A"
 alias path="command -v" # the actual path of the command to be executed
 alias which="type -a" # aliases, functions, built-ins, showing all shell interpretations.
 alias which2="whereis" # locate the binary, source, and manual page files for a command

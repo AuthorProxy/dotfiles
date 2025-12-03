@@ -1,6 +1,6 @@
 [user]
-	name = Alex Kostyukov
-	email = proxyzavr@gmail.com
+  name = Alex Kostyukov
+  email = proxyzavr@gmail.com
   useConfigOnly = true
 [credential]
   helper = manager
@@ -28,7 +28,7 @@
   packedGitWindowSize = 512m
 
 [include]
-	path = ~/Projects/dotfiles/zsh/external/catppuccin-delta/catppuccin.gitconfig
+  path = ~/Projects/dotfiles/zsh/external/catppuccin-delta/catppuccin.gitconfig
 [interactive]
   diffFilter = delta --color-only
 [delta]
@@ -228,7 +228,7 @@
   prune = true
 [pull]
   ff = only
-	rebase = merges
+  rebase = merges
 [push]
   default = simple
   followTags = true
@@ -261,7 +261,7 @@
 [mergetool "code"]
   cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 [delta]
-	features = catppuccin-frappe
+  features = catppuccin-frappe
 [diff]
   indentHeuristic = true
   renames = copies
@@ -328,7 +328,7 @@
   packSizeLimit = 2047m
   windowMemory = 2047m
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true

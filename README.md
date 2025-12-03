@@ -14,8 +14,7 @@
     width="0px"
   />
 
-Settings for different <a href="https://github.com/AuthorProxy/dotfiles">Proxy Dotfiles</a>
-  <img
+Settings for different <a href="https://github.com/AuthorProxy/dotfiles">Proxy Dotfiles</a> <img
     alt="transparent"
     src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png"
     height="30"
@@ -56,10 +55,23 @@ alias lnse='f() { if [ ! -e "$1" ]; then echo "Error: source file \"$1\" does no
 lnse $DOT_FILES/zsh/.zshrc $HOME
 lnse $DOT_FILES/zsh/.zshenv $HOME
 lnse $DOT_FILES/zsh/.zprofile $HOME
+```
 
+## GIT
+
+```sh
 lnse $DOT_FILES/git/.gitattributes $HOME
 lnse $DOT_FILES/git/.gitconfig $HOME
 lnse $DOT_FILES/git/.gitmessage $HOME
+```
+
+## VSCODE
+
+```sh
+lnse $DOT_FILES/vscode/snippets $HOME/Library/Application\ Support/Code/User/snippets
+lnse $DOT_FILES/vscode/mcp.json $HOME/Library/Application\ Support/Code/User/mcp.json
+lnse $DOT_FILES/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+lnse $DOT_FILES/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
 ```
 
 ---
