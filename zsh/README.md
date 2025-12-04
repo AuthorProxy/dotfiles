@@ -1,8 +1,8 @@
 ## CLI EVERYDAY TOOLS
 
 - git and git-credential-manager-core
-- atuin - modern shell history m
-anager
+- awk - text-processing tool (GNU Version)
+- make - text-processing tool (GNU Version)
 - fzf - fuzzy finder
 - eza, lsd - modern ls replacements
 - bat - modern cat replacement
@@ -30,6 +30,9 @@ anager
 - ngrock - secure tunnels to localhost
 - vivd - generator for LS_COLORS env variable
 - warp-cli - AI-powered terminal
+- rustup - rust lang installer
+- stylelint - linter for css files (required by extensions)
+- mbake - linter for make files (required by extensions)
 
 ### NeoVim and LazyVim dependencies (not listed before)
 
@@ -44,10 +47,12 @@ anager
 ## Installation
 
 - brew tap microsoft/git && brew install git && brew install --cask git-credential-manager-core
-- brew install starship lazygit nvm neovim ngrok vivid
+- brew install starship lazygit nvm neovim ngrok vivid stylelint
 - brew tap warpdotdev/warp && brew update && brew install --cask warp-cli
-- brew install fzf lsd eza bat ripgrep rga ast-grep mtr fd jq yq git-delta procs zoxide
+- brew install rustup && $(brew --prefix rustup)/bin/rustup-init
+- brew install make gawk fzf lsd eza bat ripgrep rga ast-grep mtr fd jq yq git-delta procs zoxide
 - brew install pandoc poppler ffmpeg
+- pip3 install mbake
 
 ### NeoVim/LazyVim dependencies
 

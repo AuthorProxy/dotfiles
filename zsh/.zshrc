@@ -1,6 +1,11 @@
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+# Use this for sourcing files safely
+source_if_exists() {
+  if [[ -f "$1" ]]; then
+    . "$1"
+  else
+    echo "Warning: File to source '$1' does not exist. Check your setup."
+  fi
+}
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -25,7 +30,7 @@ plugins=(
   zsh-interactive-cd
 )
 
-source $ZSH/oh-my-zsh.sh
+source_if_exists $ZSH/oh-my-zsh.sh
 
 # User configuration
-source $DOT_FILES/zsh/proxy.init.zsh
+source_if_exists $DOT_FILES/zsh/proxy.init.zsh

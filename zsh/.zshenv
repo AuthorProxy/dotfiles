@@ -42,3 +42,9 @@ source "$PROJECTS/API_KEYS/zsh/gemini.zsh"
 
 # LazyVim mason
 export PATH="$PATH:$HOME/.local/share/nvim/mason/bin"
+
+# Forgit tree replacement
+export FORGIT_DIR_VIEW="lsd --almost-all --long --git --group-directories-first --blocks=\"git,name\" --tree"
+
+# Rustup and Cargo
+source "$HOME/.cargo/env"

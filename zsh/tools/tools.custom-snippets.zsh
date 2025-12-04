@@ -1,3 +1,11 @@
+# a never-ending loop for tests
+test_inf() {
+  while :; do
+    echo 'This will never end, except if you hit CTRL+C'
+    sleep 1
+  done
+}
+
 # kill a process on a specified port
 kill_port() {
   if [ -n "$1" ]

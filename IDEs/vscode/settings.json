@@ -12,6 +12,11 @@
     ["[", "]"],
     ["(", ")"],
   ],
+  "editor.quickSuggestions": {
+    "other": "on",
+    "comments": "true",
+    "strings": "true",
+  },
   "editor.detectIndentation": false,
   "files.autoSave": "afterDelay",
   "files.autoSaveDelay": 3000,
@@ -93,6 +98,7 @@
   "html.format.indentHandlebars": true,
   "html.format.templating": true,
   "html.format.preserveNewLines": false,
+  // false to let stylelint rule validating
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
@@ -226,11 +232,6 @@
   ],
   "[dockercompose]": {
     "editor.defaultFormatter": "redhat.vscode-yaml",
-    "editor.quickSuggestions": {
-      "other": true,
-      "comments": false,
-      "strings": true,
-    },
   },
   "yaml.validate": false,
   "explorer.confirmDragAndDrop": false,
@@ -365,7 +366,6 @@
     },
   ],
   "workbench.activityBar.location": "top",
-  "makefile.configureOnOpen": false,
   "testing.automaticallyOpenTestResults": "neverOpen",
   "window.newWindowProfile": "Default",
   "[hosts]": {
@@ -410,4 +410,9 @@
   },
   "editor.minimap.enabled": false,
   "markdownlint.configFile": "~/.markdownlint.yaml",
+  "makefile.configureOnOpen": false,
+  "[makefile]": {
+    "editor.defaultFormatter": "eshojaei.mbake-makefile-formatter"
+  },
+
 }

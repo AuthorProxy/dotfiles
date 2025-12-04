@@ -59,9 +59,9 @@ lnse $DOT_FILES/zsh/.zprofile $HOME
 ## GIT
 
 ```sh
-lnse $DOT_FILES/git/.gitattributes $HOME
-lnse $DOT_FILES/git/.gitconfig $HOME
-lnse $DOT_FILES/git/.gitmessage $HOME
+lnse -f $DOT_FILES/tools/git/.gitattributes $HOME
+lnse -f $DOT_FILES/tools/git/.gitconfig $HOME
+lnse -f $DOT_FILES/tools/git/.gitmessage $HOME
 ```
 
 ## VSCODE

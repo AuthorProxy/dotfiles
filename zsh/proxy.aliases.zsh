@@ -6,6 +6,7 @@ alias path="command -v" # the actual path of the command to be executed
 alias which="type -a" # aliases, functions, built-ins, showing all shell interpretations.
 alias which2="whereis" # locate the binary, source, and manual page files for a command
 alias fd="fd --hidden --exclude .git --exclude node_modules"
+alias rg="rg --no-messages --hidden --smart-case -C 2"
 
 # sometime you need the old commands
 alias _find="command find"
@@ -29,9 +30,9 @@ alias cp="cp -i"
 alias mv="mv -i"
 alias mkdir="mkdir -p"
 alias find="fd"
+alias grep="rg"
 alias ls="eza --almost-all --long --git --icons --group-directories-first --octal-permissions --time-style='+%d %b, %Y %H:%M'"
 alias ls2="lsd --almost-all --long --git --group-directories-first --date='+%d %b, %Y %H:%M' --blocks=permission,user,size,date,git,name"
-alias grep="rg --hidden --smart-case -C 2"
 alias highlight="grep --passthru"
 alias hl="highlight"
 alias less="delta"
@@ -41,7 +42,6 @@ alias clip="pbcopy"
 alias copy="pbcopy"
 alias vi="nvim"
 alias vim="nvim"
-
 
 # tools
 alias tmux="tmux -2"

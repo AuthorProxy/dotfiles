@@ -9,4 +9,5 @@ MD033: false
 MD041: false
 
 MD060:
+  aligned_delimiter: true
   style: aligned
