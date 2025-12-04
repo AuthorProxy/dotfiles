@@ -8,8 +8,6 @@
     "diagnostics": true,
     "alwaysStrict": true,
     "removeComments": true,
-    "suppressImplicitAnyIndexErrors": true,
-
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noEmitOnError": true,

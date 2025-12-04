@@ -1,4 +1,3 @@
-<!-- markdownlint-disable MD033 -->
 
 <h3 align="center">
  <img
@@ -68,10 +67,18 @@ lnse $DOT_FILES/git/.gitmessage $HOME
 ## VSCODE
 
 ```sh
-lnse $DOT_FILES/vscode/snippets $HOME/Library/Application\ Support/Code/User/snippets
-lnse $DOT_FILES/vscode/mcp.json $HOME/Library/Application\ Support/Code/User/mcp.json
-lnse $DOT_FILES/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
-lnse $DOT_FILES/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
+lnse $DOT_FILES/IDEs/vscode/snippets $HOME/Library/Application\ Support/Code/User/snippets
+lnse $DOT_FILES/IDEs/vscode/mcp.json $HOME/Library/Application\ Support/Code/User/mcp.json
+lnse $DOT_FILES/IDEs/vscode/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+lnse $DOT_FILES/IDEs/vscode/keybindings.json $HOME/Library/Application\ Support/Code/User/keybindings.json
+```
+
+## OTHERS
+
+```sh
+lnse $DOT_FILES/tools/.editorconfig $HOME/.editorconfig
+lnse $DOT_FILES/tools/frontend/.prettierrc $HOME/.prettierrc
+lnse $DOT_FILES/tools/.markdownlint.yaml $HOME/.markdownlint.yaml
 ```
 
 ---

@@ -1,7 +1,7 @@
-# some default settings
+# Default settings
 setopt CORRECT # commands correction
-export GPG_TTY=$(tty)
-export LANG="en_US.UTF-8"
+export GPG_TTY=$(tty) # default gpg tty
+export LANG="en_US.UTF-8" # default lang
 
 # Brew installation
 export HOMEBREW_BAT=1

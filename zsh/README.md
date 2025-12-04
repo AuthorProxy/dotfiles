@@ -1,7 +1,8 @@
-# CLI EVERYDAY TOOLS
+## CLI EVERYDAY TOOLS
 
 - git and git-credential-manager-core
-- atuin - modern shell history manager
+- atuin - modern shell history m
+anager
 - fzf - fuzzy finder
 - eza, lsd - modern ls replacements
 - bat - modern cat replacement

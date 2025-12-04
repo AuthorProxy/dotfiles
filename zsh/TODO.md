@@ -21,6 +21,9 @@
 - [ ] <https://github.com/LunarVim/LunarVim> - outdated?
 - [ ] <https://github.com/NvChad/NvChad>
 
+- Configs
+  -- <https://github.com/ChristianChiarulli/nvim/blob/master/lua/config/options.lua>
+
 - Switch from Telescope to fzf-lua?
 - [>] <https://github.com/ibhagwan/fzf-lua#rationale>
 - [<] <https://github.com/LazyVim/LazyVim/discussions/3619>
@@ -43,3 +46,18 @@
 - TMUX -- Finish Catpp
   <https://github.com/catppuccin/tmux/blob/main/docs/reference/configuration.md> and
   <https://github.com/catppuccin/tmux?tab=readme-ov-file>
+
+- Review linux tiling windows managers: i3wm vs awesomewm vs hyprland (wayland) vs sway (i3 for
+  wayland)
+- Review macos tiling windows managers
+- Review dotfiles sync solutions
+  -- <https://www.chezmoi.io/comparison-table>
+  -- <https://github.com/anishathalye/dotbot>
+  -- <https://github.com/thoughtbot/rcm>
+  -- <https://github.com/RichiH/vcsh>
+  -- <https://yadm.io/docs/install>
+  -- <https://github.com/rhysd/dotfiles>
+  -- <https://www.reddit.com/r/linux/comments/paldp4/best_way_to_manage_dotfiles_using_just_git>
+
+- encrypt secrets
+  -- <https://formulae.brew.sh/formula/gnupg>
