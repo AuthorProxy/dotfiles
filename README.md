@@ -46,22 +46,53 @@ Settings for different <a href="https://github.com/AuthorProxy/dotfiles">Proxy D
 
 # General Settings
 
+## MAKE FILE
+
+### Modes
+
+`DOT_FILES_MODE=0` read-only mode, only validates
+
+`DOT_FILES_MODE=1` enable force symlinking (after confirmation)
+
+### Running
+
+- run all rules, read-only
+
+```sh
+make run
+```
+
+- run all rules with fixing (after confirmation)
+
+```sh
+make run DOT_FILES_MODE=1
+```
+
+- run specific rule(s) with fixing (after confirmation)
+
+```sh
+make run run-shell run-git DOT_FILES_MODE=1
+```
+
 ## ZSH
 
 ```sh
+# at first add alias until you linked $DOT_FILES/zsh/.zshrc
 alias lnse='f() { if [ ! -e "$1" ]; then echo "Error: source file \"$1\" does not exist"; return 1; fi; ln -s "$1" "$2"; }; f'
+```
 
-lnse $DOT_FILES/zsh/.zshrc $HOME
-lnse $DOT_FILES/zsh/.zshenv $HOME
-lnse $DOT_FILES/zsh/.zprofile $HOME
+```sh
+lnse $DOT_FILES/zsh/.zshrc $HOME/.zshrc
+lnse $DOT_FILES/zsh/.zshenv $HOME/.zshenv
+lnse $DOT_FILES/zsh/.zprofile $HOME/.zprofile
 ```
 
 ## GIT
 
 ```sh
-lnse -f $DOT_FILES/tools/git/.gitattributes $HOME
-lnse -f $DOT_FILES/tools/git/.gitconfig $HOME
-lnse -f $DOT_FILES/tools/git/.gitmessage $HOME
+lnse $DOT_FILES/tools/git/.gitattributes $HOME/.gitattributes
+lnse $DOT_FILES/tools/git/.gitconfig $HOME/.gitconfig
+lnse $DOT_FILES/tools/git/.gitmessage $HOME/.gitmessage
 ```
 
 ## VSCODE

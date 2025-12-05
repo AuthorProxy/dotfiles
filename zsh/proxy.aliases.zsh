@@ -1,7 +1,7 @@
 ### ALIASES ###
 # helpers
 alias h="history"
-alias ccd='clear && cd'
+alias ccd='() { clear && cd "${1:-.}"; }'
 alias path="command -v" # the actual path of the command to be executed
 alias which="type -a" # aliases, functions, built-ins, showing all shell interpretations.
 alias which2="whereis" # locate the binary, source, and manual page files for a command
@@ -19,7 +19,7 @@ alias -g .....="../../../.."
 
 # lnse $SRC $DEST or # lnse -f $SRC $DEST
 alias lnse='f() { opts=(); while [ "${1#-}" != "$1" ]; do opts+=("$1"); shift; done; if [ ! -e "$1" ]; then echo "Error: source file \"$1\" does not exist"; return 1; fi; src=$1; dest=$2; shift 2; ln -sn "${opts[@]}" "$src" "$dest" "$@"; }; f'
-alias reload="source $HOME/.zshrc && tmux source $XDG_CONFIG_HOME/tmux/tmux.conf"
+alias reload='source $HOME/.zshrc && [[ -n $TMUX ]] && tmux source $XDG_CONFIG_HOME/tmux/tmux.conf'
 alias nproc="sysctl -n hw.physicalcpu" # macOS equivalent of nproc
 alias vpn-start="scutil --nc start \"v2RayTun\""
 alias vpn-stop="scutil --nc stop \"v2RayTun\""
