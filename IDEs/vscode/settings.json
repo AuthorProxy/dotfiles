@@ -10,12 +10,12 @@
   "editor.language.colorizedBracketPairs": [
     ["{", "}"],
     ["[", "]"],
-    ["(", ")"],
+    ["(", ")"]
   ],
   "editor.quickSuggestions": {
     "other": "on",
     "comments": "true",
-    "strings": "true",
+    "strings": "true"
   },
   "editor.detectIndentation": false,
   "files.autoSave": "afterDelay",
@@ -31,11 +31,11 @@
     "*.ext": "vue",
     "*.up": "sql",
     "*.down": "sql",
-    ".prettierrc": "jsonc",
+    ".prettierrc": "yaml"
   },
   "files.exclude": {
     "**/node_modules/**": true,
-    "**/coverage/**": true,
+    "**/coverage/**": true
   },
   "better-comments.highlightPlainText": true,
   "editor.defaultFormatter": "prettier.prettier-vscode",
@@ -46,20 +46,24 @@
   "editor.codeActionsOnSave": {
     "source.addMissingImports": "explicit",
     "source.organizeImports": "explicit",
-    "source.fixAll": "explicit",
+    "source.fixAll": "explicit"
   },
   "formattingToggle.statusBarText": {
     "formattingEnabled": "4 8 15 16 23 42 $(gear~spin)",
     "formattingDisabled": "$(testing-failed-icon) $(testing-failed-icon) $(testing-failed-icon)",
-    "formattingToggle.affects": ["editor.formatOnSave"],
+    "formattingToggle.affects": ["editor.formatOnSave"]
   },
   "editor.acceptSuggestionOnEnter": "on",
   "editor.suggestSelection": "first",
+  "editor.suggest.preview": true,
   "editor.cursorBlinking": "smooth",
   "editor.cursorWidth": 3,
   "editor.renderWhitespace": "all",
   "editor.letterSpacing": 0.5,
-  "editor.minimap.scale": 2,
+  "editor.minimap.enabled": true,
+  "editor.minimap.scale": 3,
+  "editor.minimap.autohide": "mouseover",
+  "editor.minimap.maxColumn": 40,
   "editor.insertSpaces": true,
   "editor.linkedEditing": true,
   "editor.suggest.showMethods": true,
@@ -81,13 +85,13 @@
   "git.useCommitInputAsStashMessage": true,
   "github.copilot.editor.enableCodeActions": false,
   "github.copilot.enable": {
-    "*": true,
+    "*": true
   },
   "go.lintTool": "golangci-lint",
   "go.lintFlags": ["--fast"],
   "go.toolsManagement.autoUpdate": true,
   "go.enableCodeLens": {
-    "runtest": true,
+    "runtest": true
   },
   "powershell.buttons.showPanelMovementButtons": true,
   "powershell.codeFormatting.autoCorrectAliases": true,
@@ -132,10 +136,10 @@
   "emmet.includeLanguages": {
     "tpl": "html",
     "vue-html": "html",
-    "javascript": "javascriptreact",
+    "javascript": "javascriptreact"
   },
   "[csharp]": {
-    "editor.tabSize": 4,
+    "editor.tabSize": 4
   },
   "csharp.semanticHighlighting.enabled": true,
   "sshfs.configs": [
@@ -147,7 +151,7 @@
       "username": "root",
       "password": false,
       "group": "Home",
-      "privateKeyPath": "/Users/authorproxy/.ssh/tonnel.vpn",
+      "privateKeyPath": "/Users/authorproxy/.ssh/tonnel.vpn"
     },
     {
       "name": "vpn_amsterdam",
@@ -157,27 +161,31 @@
       "username": "root",
       "password": false,
       "group": "Home",
-      "privateKeyPath": "/Users/authorproxy/.ssh/tonnel2.vpn",
-    },
+      "privateKeyPath": "/Users/authorproxy/.ssh/tonnel2.vpn"
+    }
   ],
   "remote.SSH.showLoginTerminal": true,
   "remote.SSH.remotePlatform": {
-    "tonnel.vpn": "linux",
+    "tonnel.vpn": "linux"
   },
   "gitlens.blame.ignoreWhitespace": true,
   "gitlens.advanced.fileHistoryFollowsRenames": true,
   "template-string-converter.autoRemoveTemplateString": true,
   "template-string-converter.addBracketsToProps": true,
   "template-string-converter.convertOutermostQuotes": true,
+  "editor.stickyScroll.maxLineCount": 3,
+  "notebook.stickyScroll.enabled": false,
+  "workbench.tree.enableStickyScroll": false,
+  "workbench.tree.stickyScrollMaxItemCount": 3,
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook",
-    "*.vsix": "default",
+    "*.vsix": "default"
   },
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
-  "workbench.editor.enablePreviewFromCodeNavigation": false,
-  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.enablePreviewFromCodeNavigation": true,
+  "workbench.editor.enablePreviewFromQuickOpen": true,
   "workbench.iconTheme": "catppuccin-frappe",
   "workbench.colorTheme": "Catppuccin Frappé",
   "workbench.productIconTheme": "feather-vscode",
@@ -188,11 +196,11 @@
     "editorLineNumber.foreground": "#f682e382",
     "editorCursor.foreground": "#00f5f5",
     "terminalCursor.background": "#7bf2b8",
-    "terminalCursor.foreground": "#7bf2b8",
+    "terminalCursor.foreground": "#7bf2b8"
   },
   "theme-by-language.themes": {
     "*": "Catppuccin Frappé",
-    "powershell": "PowerShell ISE",
+    "powershell": "PowerShell ISE"
   },
   "debug.allowBreakpointsEverywhere": true,
   "debug.showBreakpointsInOverviewRuler": true,
@@ -228,10 +236,10 @@
     "!Select",
     "!Select sequence",
     "!Split",
-    "!Split sequence",
+    "!Split sequence"
   ],
   "[dockercompose]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "yaml.validate": false,
   "explorer.confirmDragAndDrop": false,
@@ -240,7 +248,7 @@
     "**/pnpm-lock.yaml": true,
     "**/package-lock.json": true,
     "**/yarn.lock": true,
-    ".yarn/**": true,
+    ".yarn/**": true
   },
   "npm.packageManager": "pnpm",
   "security.workspace.trust.untrustedFiles": "newWindow",
@@ -259,32 +267,32 @@
     "mailto",
     "vscode",
     "vscode-insiders",
-    "docker-desktop",
+    "docker-desktop"
   ],
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.profiles.osx": {
     "zsh": {
       "path": "zsh",
-      "args": ["-l"],
+      "args": ["-l"]
     },
     "tmux": {
       "path": "tmux",
-      "icon": "terminal-tmux",
+      "icon": "terminal-tmux"
     },
     "bash": {
       "path": "bash",
       "args": ["-l"],
-      "icon": "terminal-bash",
+      "icon": "terminal-bash"
     },
     "fish": {
       "path": "fish",
-      "args": ["-l"],
+      "args": ["-l"]
     },
     "pwsh": {
       "path": "pwsh",
-      "icon": "terminal-powershell",
-    },
+      "icon": "terminal-powershell"
+    }
   },
   "quokka.startViewStatusBar": true,
   "quokka.compactMessageOutput": true,
@@ -307,10 +315,10 @@
     "eslint.*": "eslint.*",
     ".prettierrc*": ".prettierrc*",
     "prettier.*": "prettier.*",
-    "vue.config.*": "vite.config.*",
+    "vue.config.*": "vite.config.*"
   },
   "[xml]": {
-    "editor.defaultFormatter": "DotJoshJohnson.xml",
+    "editor.defaultFormatter": "DotJoshJohnson.xml"
   },
   "turboConsoleLog.addSemicolonInTheEnd": true,
   "turboConsoleLog.insertEmptyLineAfterLogMessage": true,
@@ -331,13 +339,15 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.experimental.showMoves": true,
   "rest-client.defaultHeaders": {
-    "authKey": "12345",
+    "authKey": "12345"
   },
   "rest-client.environmentVariables": {
-    "local": { "endpoint": "http://localhost:9001" },
-    "$shared": {
-      "authkey": "12345",
+    "local": {
+      "endpoint": "http://localhost:9001"
     },
+    "$shared": {
+      "authkey": "12345"
+    }
   },
   "rest-client.decodeEscapedUnicodeCharacters": true,
   "html-css-class-completion.enableEmmetSupport": true,
@@ -353,7 +363,7 @@
   "errorLens.fontWeight": "bold",
   "errorLens.gutterIconsEnabled": true,
   "errorLens.editorHoverPartsEnabled": {
-    "messageEnabled": true,
+    "messageEnabled": true
   },
   "errorLens.delayMode": "debounce",
   "errorLens.fontSize": "14",
@@ -362,56 +372,64 @@
   "gitlens.autolinks": [
     {
       "prefix": "ROC-",
-      "url": "https://rockbot.atlassian.net/browse/<num>",
-    },
+      "url": "https://rockbot.atlassian.net/browse/<num>"
+    }
   ],
   "workbench.activityBar.location": "top",
   "testing.automaticallyOpenTestResults": "neverOpen",
   "window.newWindowProfile": "Default",
   "[hosts]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "[github-actions-workflow]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.defaultFormatter": "redhat.vscode-yaml"
   },
-
   // TELEMETRY SECTION
   "telemetry.enableTelemetry": false,
   "telemetry.telemetryLevel": "off",
   "redhat.telemetry.enabled": false,
   "rest-client.enableTelemetry": false,
   "dotnetAcquisitionExtension.enableTelemetry": false,
-
   // ------------------------------------------
   // Catppuccin for VSCode
   // https://github.com/catppuccin/vscode?tab=readme-ov-file#vscode-settings
   "editor.semanticHighlighting.enabled": true,
   "window.titleBarStyle": "custom",
   "gopls": {
-    "ui.semanticTokens": true,
+    "ui.semanticTokens": true
   },
   "catppuccin.accentColor": "mauve",
   // ------------------------------------------
-
   "projectManager.git.baseFolders": ["~/Projects"],
   "[markdown]": {
-    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
   },
   "[lua]": {
-    "editor.defaultFormatter": "JohnnyMorganz.stylua",
+    "editor.defaultFormatter": "JohnnyMorganz.stylua"
   },
   "Lua.diagnostics.globals": ["vim"],
   "github.copilot.nextEditSuggestions.enabled": true,
   "[ini]": {
-    "editor.defaultFormatter": "lkrms.inifmt",
+    "editor.defaultFormatter": "lkrms.inifmt"
   },
   "[gitconfig]": {
-    "editor.defaultFormatter": "yy0931.gitconfig-lsp",
+    "editor.defaultFormatter": "yy0931.gitconfig-lsp"
   },
-  "editor.minimap.enabled": false,
   "markdownlint.configFile": "~/.markdownlint.yaml",
   "makefile.configureOnOpen": false,
   "[makefile]": {
     "editor.defaultFormatter": "eshojaei.mbake-makefile-formatter"
   },
+  "chat.mcp.gallery.enabled": true,
+  "chat.mcp.serverSampling": {
+    "Global in Code: io.github.upstash/context7": {
+      "allowedModels": ["copilot/gpt-5-mini", "copilot/auto"]
+    }
+  },
+  "chat.mcp.discovery.enabled": {
+    "claude-desktop": true,
+    "windsurf": true,
+    "cursor-global": true,
+    "cursor-workspace": true
+  }
 }

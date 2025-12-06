@@ -2,39 +2,39 @@
 [
   {
     "key": "ctrl+cmd+n",
-    "command": "extension.advancedNewFile"
+    "command": "extension.advancedNewFile",
   },
   {
     "key": "cmd+backspace",
-    "command": "console-ninja.clearOutput"
+    "command": "console-ninja.clearOutput",
   },
   {
     "key": "cmd+backspace",
     "command": "workbench.action.terminal.clear",
-    "when": "terminalHasBeenCreated || terminalProcessSupported"
+    "when": "terminalHasBeenCreated || terminalProcessSupported",
   },
   {
     "key": "shift+cmd+t",
-    "command": "workbench.action.showAllSymbols"
+    "command": "workbench.action.showAllSymbols",
   },
   {
     "key": "cmd+t",
     "command": "workbench.action.terminal.new",
-    "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+    "when": "terminalProcessSupported || terminalWebExtensionContributedProfile",
   },
   {
     "key": "shift+cmd+w",
     "command": "workbench.action.terminal.kill",
-    "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated || terminalEditorFocus && terminalFocus && terminalProcessSupported"
+    "when": "terminalEditorFocus && terminalFocus && terminalHasBeenCreated || terminalEditorFocus && terminalFocus && terminalProcessSupported",
   },
   {
     "key": "ctrl+shift+l",
     "command": "editor.action.insertCursorAtEndOfEachLineSelected",
-    "when": "editorTextFocus"
+    "when": "editorTextFocus",
   },
   {
     "key": "shift+alt+i",
     "command": "-editor.action.insertCursorAtEndOfEachLineSelected",
-    "when": "editorTextFocus"
-  }
+    "when": "editorTextFocus",
+  },
 ]

@@ -1,14 +1,14 @@
 {
-	"servers": {
-		"console-ninja": {
-			"command": "npx",
-			"args": [
-				"-y",
-				"-c",
-				"node ~/.console-ninja/mcp/"
-			],
-			"type": "stdio"
-		}
-	},
-	"inputs": []
+  "servers": {
+    "console-ninja": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "-c", "node ~/.console-ninja/mcp/"]
+    },
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
 }

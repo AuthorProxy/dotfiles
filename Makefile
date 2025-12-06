@@ -7,6 +7,7 @@ SHELL := /bin/zsh
 HOME ?= ~/
 DOT_FILES ?= ~/Projects/dotfiles
 DOT_FILES_MODE ?= 0
+OUTPUT_TARGET := $(if $(filter 1,$(DOT_FILES_MODE)),/dev/tty,/dev/stdout)
 
 GIT_FILES := \
 	$$DOT_FILES/tools/git/.gitconfig:$$HOME/.gitconfig \
@@ -45,31 +46,29 @@ RESET := \033[0m
 run: shell git vscode linters
 
 shell:
-	@echo "...\nValidating Shell files..." > /dev/tty
+	@echo "...\nValidating Shell files..." >&$(OUTPUT_TARGET);
 	@$(call process_files,$(SHELL_FILES))
-	@echo "..." > /dev/tty
+	@echo "..." >&$(OUTPUT_TARGET);
 
 git:
-	@echo "...\nValidating Git files..." > /dev/tty
+	@echo "...\nValidating Git files..." >&$(OUTPUT_TARGET);
 	@$(call process_files,$(GIT_FILES))
-	@echo "..." > /dev/tty
+	@echo "..." >&$(OUTPUT_TARGET);
 
 vscode:
-	@echo "...\nValidating vscode files..." > /dev/tty
+	@echo "...\nValidating vscode files..." >&$(OUTPUT_TARGET);
 	@$(call process_files,$(VSCODE_FILES))
-	@echo "..." > /dev/tty
+	@echo "..." >&$(OUTPUT_TARGET);
 
 linters:
-	@echo "...\nValidating Config files..." > /dev/tty
+	@echo "...\nValidating Config files..." >&$(OUTPUT_TARGET);
 	@$(call process_files,$(LINTER_FILES))
-	@echo "..." > /dev/tty
+	@echo "..." >&$(OUTPUT_TARGET);
 
 # Function to process file pairs
 define process_files
 	for pair in $(1); do \
-		ask_fix=false; \
-		output_target=1; \
-		[[ $(DOT_FILES_MODE) == 1 ]] && ask_fix=true && output_target=/dev/tty; \
+		ask_fix=$(if $(filter 1,$(DOT_FILES_MODE)),true,false); \
 		\
 		src=$${pair%:*}; \
 		dest=$${pair#*:}; \
@@ -100,58 +99,58 @@ define process_files
 		[[ ! -e "$$src" && -e "$$dest" && -L "$$dest" ]] && src_not_exist_but_dest_exists_and_dest_is_wrong_link=true; \
 		[[ ! -e "$$src" && ! -e "$$dest" && -L "$$dest" ]] && src_not_exist_but_dest_exists_and_dest_is_broken_link=true; \
 		\
-		: 'echo "$$src - - - $$dest"' >&$$output_target; \
+		: 'echo "$$src - - - $$dest"' >&$(OUTPUT_TARGET); \
 		if $$src_and_dest_exists_and_dest_is_correct_link; then \
-			echo "$(GREEN)✓ $$dest --> $$src: source is OK, symlink is OK$(RESET)" >&$$output_target; \
+			echo "$(GREEN)✓ $$dest --> $$src: source is OK, symlink is OK$(RESET)" >&$(OUTPUT_TARGET); \
 		elif $$src_and_dest_exists_but_dest_is_wrong_link; then \
-			$$ask_fix && echo "" >&$$output_target; \
-			echo "$(YELLOW)✗ $$dest --> $$src: source is OK, symlink is WRONG target - $$dest_link_path$(RESET)" >&$$output_target; \
-			$$ask_fix && echo "$(YELLOW)Do you want to fix it?$(RESET)" >&$$output_target; \
+			$$ask_fix && echo "" >&$(OUTPUT_TARGET); \
+			echo "$(YELLOW)✗ $$dest --> $$src: source is OK, symlink is WRONG target - $$dest_link_path $(LAVENDER)[FIXABLE]$(RESET)" >&$(OUTPUT_TARGET); \
+			$$ask_fix && echo "$(YELLOW)Do you want to fix it?$(RESET)" >&$(OUTPUT_TARGET); \
 		elif $$src_and_dest_exists_but_dest_is_broken_link; then \
-			$$ask_fix && echo "" >&$$output_target; \
-			echo "$(RED)✗ $$dest --> $$src: source is OK, symlink is BROKEN - $$dest_link_path$(RESET)" >&$$output_target; \
-			$$ask_fix && echo "$(YELLOW)Do you want to fix it?$(RESET)" >&$$output_target; \
+			$$ask_fix && echo "" >&$(OUTPUT_TARGET); \
+			echo "$(RED)✗ $$dest --> $$src: source is OK, symlink is BROKEN - $$dest_link_path $(LAVENDER)[FIXABLE]$(RESET)" >&$(OUTPUT_TARGET); \
+			$$ask_fix && echo "$(YELLOW)Do you want to fix it?$(RESET)" >&$(OUTPUT_TARGET); \
 		elif $$src_and_dest_exists_but_dest_is_real; then \
-			$$ask_fix && echo "" >&$$output_target; \
-			echo "$(RED)✗ $$dest --> $$src: source is OK, destination is regular FILE/DIR$(RESET)" >&$$output_target; \
-			$$ask_fix && echo "$(YELLOW)Do you want to fix it? $(RED)!!! WARNING !!! - ORIGINAL WOULD BE DELETED$(RESET)" >&$$output_target; \
+			$$ask_fix && echo "" >&$(OUTPUT_TARGET); \
+			echo "$(RED)✗ $$dest --> $$src: source is OK, destination is regular FILE/DIR $(LAVENDER)[FIXABLE]$(RESET)" >&$(OUTPUT_TARGET); \
+			$$ask_fix && echo "$(YELLOW)Do you want to fix it? $(RED)!!! WARNING !!! - ORIGINAL WOULD BE DELETED$(RESET)" >&$(OUTPUT_TARGET); \
 		elif $$src_exists_but_dest_not_exist; then \
-			$$ask_fix && echo "" >&$$output_target; \
-			echo "$(YELLOW)~ $$dest --> $$src: source is OK, symlink is MISSING$(RESET)" >&$$output_target; \
-			$$ask_fix && echo "$(YELLOW)Do you want to fix it?$(RESET)" >&$$output_target; \
+			$$ask_fix && echo "" >&$(OUTPUT_TARGET); \
+			echo "$(YELLOW)~ $$dest --> $$src: source is OK, symlink is MISSING $(LAVENDER)[FIXABLE]$(RESET)" >&$(OUTPUT_TARGET); \
+			$$ask_fix && echo "$(YELLOW)Do you want to fix it?$(RESET)" >&$(OUTPUT_TARGET); \
 		elif $$src_and_dest_not_exist; then \
-			$$ask_fix && echo "" >&$$output_target; \
-			echo "$(RED)✗ $$dest --> $$src: source is MISSING, symlink is MISSING$(RESET)" >&$$output_target; \
-			$$ask_fix && echo "$(YELLOW)~ Check source path!$(RESET)" >&$$output_target; \
+			$$ask_fix && echo "" >&$(OUTPUT_TARGET); \
+			echo "$(RED)✗ $$dest --> $$src: source is MISSING, symlink is MISSING$(RESET)" >&$(OUTPUT_TARGET); \
+			$$ask_fix && echo "$(YELLOW)~ Check source path!$(RESET)" >&$(OUTPUT_TARGET); \
 		elif $$src_not_exist_but_dest_exists_and_dest_is_real; then \
-			$$ask_fix && echo "" >&$$output_target; \
-			echo "$(RED)✗ $$dest --> $$src: source is MISSING, destination is regular FILE/DIR$(RESET)" >&$$output_target; \
-			$$ask_fix && echo "$(YELLOW)Do you want to move original? $(RED)!!! WARNING !!! - ORIGINAL WOULD BE REPLACED WITH SYMLINK$(RESET)" >&$$output_target; \
+			$$ask_fix && echo "" >&$(OUTPUT_TARGET); \
+			echo "$(RED)✗ $$dest --> $$src: source is MISSING, destination is regular FILE/DIR $(LAVENDER)[FIXABLE]$(RESET)" >&$(OUTPUT_TARGET); \
+			$$ask_fix && echo "$(YELLOW)Do you want to move original? $(RED)!!! WARNING !!! - ORIGINAL WOULD BE MOVED AND REPLACED WITH SYMLINK$(RESET)" >&$(OUTPUT_TARGET); \
 		elif $$src_not_exist_but_dest_exists_and_dest_is_wrong_link; then \
-			$$ask_fix && echo "" >&$$output_target; \
-			echo "$(RED)✗ $$dest --> $$src: source is MISSING, symlink is WRONG target - $$dest_link_path$(RESET)" >&$$output_target; \
-			$$ask_fix && echo "$(YELLOW)~ Check source path!$(RESET)" >&$$output_target; \
+			$$ask_fix && echo "" >&$(OUTPUT_TARGET); \
+			echo "$(RED)✗ $$dest --> $$src: source is MISSING, symlink is WRONG target - $$dest_link_path$(RESET)" >&$(OUTPUT_TARGET); \
+			$$ask_fix && echo "$(YELLOW)~ Check source path!$(RESET)" >&$(OUTPUT_TARGET); \
 		elif $$src_not_exist_but_dest_exists_and_dest_is_broken_link; then \
-			$$ask_fix && echo "" >&$$output_target; \
-			echo "$(RED)✗ $$dest --> $$src: source is MISSING, symlink is BROKEN - $$dest_link_path$(RESET)" >&$$output_target; \
-			$$ask_fix && echo "$(YELLOW)~ Check source path!$(RESET)" >&$$output_target; \
+			$$ask_fix && echo "" >&$(OUTPUT_TARGET); \
+			echo "$(RED)✗ $$dest --> $$src: source is MISSING, symlink is BROKEN - $$dest_link_path$(RESET)" >&$(OUTPUT_TARGET); \
+			$$ask_fix && echo "$(YELLOW)~ Check source path!$(RESET)" >&$(OUTPUT_TARGET); \
 		else \
-			$$ask_fix && echo "" >&$$output_target; \
-			echo "$(RED)✗ $$dest --> $$src: unknown state$(RESET)" >&$$output_target; \
-			$$ask_fix && echo "$(RED)✗ !Something went wrong!$(RESET)" >&$$output_target; \
+			$$ask_fix && echo "" >&$(OUTPUT_TARGET); \
+			echo "$(RED)✗ $$dest --> $$src: unknown state$(RESET)" >&$(OUTPUT_TARGET); \
+			$$ask_fix && echo "$(RED)✗ !Something went wrong!$(RESET)" >&$(OUTPUT_TARGET); \
 		fi; \
  \
 		if $$ask_fix && [[ -e "$$src" ]] && ! $$src_and_dest_exists_and_dest_is_correct_link; then \
-			echo "◯ Run? $(LAVENDER)ln -snf \"$$src\" \"$$dest\";$(RESET)" >&$$output_target; \
-			echo "◯ Press [y/n]" >&$$output_target; \
+			echo "◯ Run? $(LAVENDER)ln -snf \"$$src\" \"$$dest\";$(RESET)" >&$(OUTPUT_TARGET); \
+			echo "◯ Press [y/n]" >&$(OUTPUT_TARGET); \
 			read -r fix_all < /dev/tty; \
 			if [[ "$$fix_all" == [yY] ]]; then \
 				ln -snf "$$src" "$$dest"; \
-				echo "$(GREEN)✓ Fixed: $$dest linked to $$src$(RESET)" >&$$output_target; \
+				echo "$(GREEN)✓ Fixed: $$dest linked to $$src$(RESET)" >&$(OUTPUT_TARGET); \
 			else \
-				echo "$(LAVENDER)◯ Skipped: $$dest to $$src$(RESET)" >&$$output_target; \
+				echo "$(LAVENDER)◯ Skipped: $$dest to $$src$(RESET)" >&$(OUTPUT_TARGET); \
 			fi; \
 		fi; \
 	done; \
-	if $$ask_fix; then echo "" >&$$output_target; fi;
+	if $$ask_fix; then echo "" >&$(OUTPUT_TARGET); fi;
 endef

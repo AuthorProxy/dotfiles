@@ -47,8 +47,11 @@
   <https://github.com/catppuccin/tmux/blob/main/docs/reference/configuration.md> and
   <https://github.com/catppuccin/tmux?tab=readme-ov-file>
 
-- Review linux tiling windows managers: i3wm vs awesomewm vs hyprland (wayland) vs sway (i3 for
-  wayland)
+- Review linux tiling windows managers:
+  -- i3wm (X11)
+  -- awesomeWM (X11)
+  -- hyprland (wayland)
+  -- sway (i3 like wayland)
 - Review macos tiling windows managers
 - Review dotfiles sync solutions
   -- <https://www.chezmoi.io/comparison-table>
