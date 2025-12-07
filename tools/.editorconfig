@@ -1,17 +1,14 @@
-; Licensed by MIT
-; Copyright (c) 2017 Alex Kostyukov
-; https://github.com/AuthorProxy/dotfiles
-
 root = true
 
 [*]
 charset = utf-8
-end_of_line = crlf
+end_of_line = lf
 max_line_length = 120
 
 tab_width = 2
 indent_size = 2
 indent_style = space
+
 insert_final_newline = true
 trim_trailing_whitespace = true
 
@@ -29,8 +26,11 @@ charset = utf-8-bom
 [*.{sln,proj,props,targets}]
 indent_style = tab
 
-[{*.bat, Makefile}]
+[{*.bat,Makefile}]
 indent_style = tab
+
+[*.{ps1,psd1,psm1}]
+end_of_line = crlf
 
 [*.min.*]
 indent_size = ignore

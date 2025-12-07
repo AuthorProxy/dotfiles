@@ -26,8 +26,8 @@ VSCODE_FILES := \
 	$$DOT_FILES/IDEs/vscode/keybindings.json:$$HOME/Library/Application\ Support/Code/User/keybindings.json
 
 LINTER_FILES := \
-	$$DOT_FILES/tools/frontend/.prettierrc:$$HOME/.prettierrc \
 	$$DOT_FILES/tools/.editorconfig:$$HOME/.editorconfig \
+	$$DOT_FILES/tools/frontend/.prettierrc:$$HOME/.prettierrc \
 	$$DOT_FILES/tools/.markdownlint.yaml:$$HOME/.markdownlint.yaml \
 	$$DOT_FILES/tools/backend/.bake.toml:$$HOME/.bake.toml
 

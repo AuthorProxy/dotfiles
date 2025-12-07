@@ -6,7 +6,7 @@ alias path="command -v" # the actual path of the command to be executed
 alias which="type -a" # aliases, functions, built-ins, showing all shell interpretations.
 alias which2="whereis" # locate the binary, source, and manual page files for a command
 alias fd="fd --hidden --exclude .git --exclude node_modules"
-alias rg="rg --no-messages --hidden --smart-case -C 2"
+alias rg="rg -o -M 120 --max-columns-preview --no-messages --hidden --smart-case -C 1"
 
 # sometime you need the old commands
 alias _find="command find"
