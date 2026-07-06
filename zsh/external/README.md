@@ -9,29 +9,28 @@ To add directly just for reference, better to use submodules
 wget -P "$(bat --config-dir)/themes" <https://github.com/catppuccin/bat/raw/main/themes/Catppuccin%20Frappe.tmTheme>
 ```
 
-## Catppuccin Ghostty [theme](https://github.com/catppuccin/ghostty)
+## Catppuccin Ghostty + Fallout [theme](https://github.com/catppuccin/ghostty)
 
 ```sh
 lnse $DOT_FILES/zsh/external/catppuccin-ghostty/themes $XDG_CONFIG_HOME/ghostty/themes
+lnse $DOT_FILES/zsh/tools/ghostty/themes/fallout/fallout.jpg $XDG_CONFIG_HOME/ghostty/fallout.jpg
 ```
 
 ```properties
 # sh$> nano $XDG_CONFIG_HOME/ghostty/config
 
+# themes
 ## custom theme from $XDG_CONFIG_HOME/ghostty/themes
 theme = catppuccin-frappe.conf
+background-image = fallout.jpg
+background-image-fit = cover
+background-image-position = center
+background-image-opacity = 0.2
+background-opacity = 0.8
+background-blur-radius = 25
 
-## or a built-in one
-# theme = Catppuccin Frappe
 
 #... other settings
-```
-
-## Catppuccin WARP [theme](https://github.com/catppuccin/warp)
-
-```sh
-mkdir -p $HOME/.warp/themes
-lnse $DOT_FILES/zsh/external/catppuccin-warp/themes $HOME/.warp/themes/cattppuccin
 ```
 
 ## Catppuccin Fish [theme](https://github.com/catppuccin/fish)

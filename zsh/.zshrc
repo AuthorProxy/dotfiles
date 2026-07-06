@@ -34,3 +34,8 @@ source_if_exists $ZSH/oh-my-zsh.sh
 
 # User configuration
 source_if_exists $DOT_FILES/zsh/proxy.init.zsh
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/authorproxy/.lmstudio/bin"
+# End of LM Studio CLI section
+

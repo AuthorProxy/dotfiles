@@ -10,12 +10,12 @@
   "editor.language.colorizedBracketPairs": [
     ["{", "}"],
     ["[", "]"],
-    ["(", ")"]
+    ["(", ")"],
   ],
   "editor.quickSuggestions": {
     "other": "on",
-    "comments": "true",
-    "strings": "true"
+    "comments": "on",
+    "strings": "on",
   },
   "editor.detectIndentation": false,
   "files.autoSave": "afterDelay",
@@ -31,14 +31,14 @@
     "*.ext": "vue",
     "*.up": "sql",
     "*.down": "sql",
-    ".prettierrc": "yaml"
+    ".prettierrc": "yaml",
   },
   "files.exclude": {
     "**/node_modules/**": true,
-    "**/coverage/**": true
+    "**/coverage/**": true,
   },
   "better-comments.highlightPlainText": true,
-  "editor.defaultFormatter": "prettier.prettier-vscode",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnType": true,
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
@@ -46,15 +46,16 @@
   "editor.codeActionsOnSave": {
     "source.addMissingImports": "explicit",
     "source.organizeImports": "explicit",
-    "source.fixAll": "explicit"
+    "source.fixAll": "explicit",
   },
   "formattingToggle.statusBarText": {
     "formattingEnabled": "4 8 15 16 23 42 $(gear~spin)",
     "formattingDisabled": "$(testing-failed-icon) $(testing-failed-icon) $(testing-failed-icon)",
-    "formattingToggle.affects": ["editor.formatOnSave"]
+    "formattingToggle.affects": ["editor.formatOnSave"],
   },
   "editor.acceptSuggestionOnEnter": "on",
   "editor.suggestSelection": "first",
+  "editor.suggest.showMethods": true,
   "editor.suggest.preview": true,
   "editor.cursorBlinking": "smooth",
   "editor.cursorWidth": 3,
@@ -66,8 +67,6 @@
   "editor.minimap.maxColumn": 40,
   "editor.insertSpaces": true,
   "editor.linkedEditing": true,
-  "editor.suggest.showMethods": true,
-  "editor.suggest.preview": true,
   "editor.snippetSuggestions": "top",
   "files.participants.timeout": 0,
   "git.autofetch": "all",
@@ -85,20 +84,14 @@
   "git.useCommitInputAsStashMessage": true,
   "github.copilot.editor.enableCodeActions": false,
   "github.copilot.enable": {
-    "*": true
+    "*": true,
   },
   "go.lintTool": "golangci-lint",
   "go.lintFlags": ["--fast"],
   "go.toolsManagement.autoUpdate": true,
   "go.enableCodeLens": {
-    "runtest": true
+    "runtest": true,
   },
-  "powershell.buttons.showPanelMovementButtons": true,
-  "powershell.codeFormatting.autoCorrectAliases": true,
-  "powershell.codeFormatting.trimWhitespaceAroundPipe": true,
-  "powershell.codeFormatting.useCorrectCasing": true,
-  "powershell.codeFormatting.whitespaceBetweenParameters": true,
-  "powershell.codeFormatting.preset": "OTBS",
   "html.format.indentHandlebars": true,
   "html.format.templating": true,
   "html.format.preserveNewLines": false,
@@ -111,62 +104,58 @@
   "js/ts.implicitProjectConfig.checkJs": true,
   "js/ts.implicitProjectConfig.experimentalDecorators": true,
   "js/ts.implicitProjectConfig.strictNullChecks": true,
-  "javascript.referencesCodeLens.enabled": true,
-  "javascript.referencesCodeLens.showOnAllFunctions": true,
-  "javascript.preferences.quoteStyle": "single",
-  "javascript.format.semicolons": "insert",
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "typescript.validate.enable": true,
-  "typescript.tsserver.experimental.enableProjectDiagnostics": true,
-  "typescript.preferences.preferTypeOnlyAutoImports": true,
-  "typescript.suggest.completeFunctionCalls": true,
-  "typescript.implementationsCodeLens.enabled": true,
-  "typescript.preferences.quoteStyle": "single",
-  "typescript.format.semicolons": "insert",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.format.insertSpaceAfterTypeAssertion": true,
-  "typescript.inlayHints.enumMemberValues.enabled": true,
-  "typescript.inlayHints.parameterNames.enabled": "all",
-  "typescript.inlayHints.parameterTypes.enabled": true,
-  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
-  "typescriptExplorer.typeTree.view.show.typeParameters": false,
-  "typescriptExplorer.typeTree.view.show.baseClass": false,
-  "cSpell.diagnosticLevel": "Hint",
+  "js/ts.referencesCodeLens.enabled": true,
+  "js/ts.referencesCodeLens.showOnAllFunctions": true,
+  "js/ts.preferences.quoteStyle": "single",
+  "js/ts.format.semicolons": "insert",
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+  "js/ts.tsserver.experimental.enableProjectDiagnostics": true,
+  "js/ts.preferences.preferTypeOnlyAutoImports": true,
+  "js/ts.suggest.completeFunctionCalls": true,
+  "js/ts.implementationsCodeLens.enabled": true,
+  "js/ts.format.insertSpaceAfterTypeAssertion": true,
+  "js/ts.inlayHints.enumMemberValues.enabled": true,
+  "js/ts.inlayHints.parameterNames.enabled": "all",
+  "js/ts.inlayHints.parameterTypes.enabled": true,
+  "js/ts.inlayHints.propertyDeclarationTypes.enabled": true,
+  "js/ts.inlayHints.functionLikeReturnTypes.enabled": true,
+  "js/ts.implementationsCodeLens.showOnInterfaceMethods": true,
   "emmet.includeLanguages": {
     "tpl": "html",
     "vue-html": "html",
-    "javascript": "javascriptreact"
+    "javascript": "javascriptreact",
   },
   "[csharp]": {
-    "editor.tabSize": 4
+    "editor.tabSize": 4,
   },
   "csharp.semanticHighlighting.enabled": true,
   "sshfs.configs": [
     {
-      "name": "vpn_frankfurt",
-      "host": "83.229.87.118",
+      "name": "vpn_sweden",
+      "host": "snasti.authorproxy.fyi",
       "port": 10022,
       "root": "/",
       "username": "root",
       "password": false,
-      "group": "Home",
-      "privateKeyPath": "/Users/authorproxy/.ssh/tonnel.vpn"
+      "group": "VPN",
+      "privateKeyPath": "/Users/authorproxy/.ssh/tonnel2.vpn",
+      "label": "Huggy Wuggy (Sweden 🇸🇪)",
     },
     {
-      "name": "vpn_amsterdam",
-      "host": "103.45.247.223",
+      "name": "vpn_germany",
+      "host": "prikormka.authorproxy.fyi",
       "port": 10022,
       "root": "/",
       "username": "root",
       "password": false,
-      "group": "Home",
-      "privateKeyPath": "/Users/authorproxy/.ssh/tonnel2.vpn"
-    }
+      "group": "VPN",
+      "privateKeyPath": "/Users/authorproxy/.ssh/tonnel.vpn",
+      "label": "Labubu (Frankfurt 🇩🇪)",
+    },
   ],
   "remote.SSH.showLoginTerminal": true,
   "remote.SSH.remotePlatform": {
-    "tonnel.vpn": "linux"
+    "tonnel.vpn": "linux",
   },
   "gitlens.blame.ignoreWhitespace": true,
   "gitlens.advanced.fileHistoryFollowsRenames": true,
@@ -179,7 +168,7 @@
   "workbench.tree.stickyScrollMaxItemCount": 3,
   "workbench.editorAssociations": {
     "*.ipynb": "jupyter-notebook",
-    "*.vsix": "default"
+    "*.vsix": "default",
   },
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.settings.editor": "json",
@@ -196,11 +185,11 @@
     "editorLineNumber.foreground": "#f682e382",
     "editorCursor.foreground": "#00f5f5",
     "terminalCursor.background": "#7bf2b8",
-    "terminalCursor.foreground": "#7bf2b8"
+    "terminalCursor.foreground": "#7bf2b8",
   },
   "theme-by-language.themes": {
     "*": "Catppuccin Frappé",
-    "powershell": "PowerShell ISE"
+    "powershell": "PowerShell ISE",
   },
   "debug.allowBreakpointsEverywhere": true,
   "debug.showBreakpointsInOverviewRuler": true,
@@ -236,10 +225,10 @@
     "!Select",
     "!Select sequence",
     "!Split",
-    "!Split sequence"
+    "!Split sequence",
   ],
   "[dockercompose]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
+    "editor.defaultFormatter": "redhat.vscode-yaml",
   },
   "yaml.validate": false,
   "explorer.confirmDragAndDrop": false,
@@ -248,14 +237,14 @@
     "**/pnpm-lock.yaml": true,
     "**/package-lock.json": true,
     "**/yarn.lock": true,
-    ".yarn/**": true
+    ".yarn/**": true,
   },
   "npm.packageManager": "pnpm",
   "security.workspace.trust.untrustedFiles": "newWindow",
   "debug.javascript.autoAttachFilter": "smart",
   "debug.javascript.debugByLinkOptions": "off",
   "terminal.integrated.minimumContrastRatio": 1,
-  "terminal.integrated.cursorStyleInactive": "",
+  "terminal.integrated.cursorStyleInactive": "underline",
   "terminal.integrated.cursorWidth": 4,
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.fontSize": 15,
@@ -267,38 +256,33 @@
     "mailto",
     "vscode",
     "vscode-insiders",
-    "docker-desktop"
+    "docker-desktop",
   ],
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.external.osxExec": "Ghostty.app",
   "terminal.integrated.profiles.osx": {
     "zsh": {
       "path": "zsh",
-      "args": ["-l"]
+      "args": ["-l"],
     },
     "tmux": {
       "path": "tmux",
-      "icon": "terminal-tmux"
+      "icon": "terminal-tmux",
     },
     "bash": {
       "path": "bash",
       "args": ["-l"],
-      "icon": "terminal-bash"
+      "icon": "terminal-bash",
     },
     "fish": {
       "path": "fish",
-      "args": ["-l"]
+      "args": ["-l"],
     },
     "pwsh": {
       "path": "pwsh",
-      "icon": "terminal-powershell"
-    }
+      "icon": "terminal-powershell",
+    },
   },
-  "quokka.startViewStatusBar": true,
-  "quokka.compactMessageOutput": true,
-  "quokka.automaticRestart": true,
-  "quokka.suppressExpirationNotifications": true,
-  "java.referencesCodeLens.enabled": true,
   "githubPullRequests.pullBranch": "never",
   "githubPullRequests.fileListLayout": "tree",
   "explorer.fileNesting.enabled": true,
@@ -315,10 +299,10 @@
     "eslint.*": "eslint.*",
     ".prettierrc*": ".prettierrc*",
     "prettier.*": "prettier.*",
-    "vue.config.*": "vite.config.*"
+    "vue.config.*": "vite.config.*",
   },
   "[xml]": {
-    "editor.defaultFormatter": "DotJoshJohnson.xml"
+    "editor.defaultFormatter": "DotJoshJohnson.xml",
   },
   "turboConsoleLog.addSemicolonInTheEnd": true,
   "turboConsoleLog.insertEmptyLineAfterLogMessage": true,
@@ -329,32 +313,33 @@
   "autoimport.doubleQuotes": true,
   "autoimport.showNotifications": true,
   "vue.autoInsert.dotValue": true,
+  "quokka.startViewStatusBar": true,
+  "quokka.compactMessageOutput": true,
+  "quokka.automaticRestart": true,
+  "quokka.suppressExpirationNotifications": true,
   "console-ninja.showWhatsNew": false,
   "console-ninja.featureSet": "Community",
   "console-ninja.fontSize": 14,
   "console-ninja.captureFunctions": true,
   "console-ninja.installBinToPath": true,
+  "todo-tree.ripgrep.ripgrep": "/opt/homebrew/bin/rg",
   "todo-tree.general.showActivityBarBadge": true,
   "diffEditor.codeLens": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "diffEditor.experimental.showMoves": true,
   "rest-client.defaultHeaders": {
-    "authKey": "12345"
+    "authKey": "12345",
   },
   "rest-client.environmentVariables": {
     "local": {
-      "endpoint": "http://localhost:9001"
+      "endpoint": "http://localhost:9001",
     },
     "$shared": {
-      "authkey": "12345"
-    }
+      "authkey": "12345",
+    },
   },
   "rest-client.decodeEscapedUnicodeCharacters": true,
   "html-css-class-completion.enableEmmetSupport": true,
-  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
-  "typescript.implementationsCodeLens.showOnInterfaceMethods": true,
-  "typescript.referencesCodeLens.enabled": true,
-  "typescript.referencesCodeLens.showOnAllFunctions": true,
   "editor.accessibilitySupport": "off",
   "errorLens.statusBarColorsEnabled": true,
   "errorLens.statusBarIconsEnabled": true,
@@ -363,7 +348,7 @@
   "errorLens.fontWeight": "bold",
   "errorLens.gutterIconsEnabled": true,
   "errorLens.editorHoverPartsEnabled": {
-    "messageEnabled": true
+    "messageEnabled": true,
   },
   "errorLens.delayMode": "debounce",
   "errorLens.fontSize": "14",
@@ -372,20 +357,19 @@
   "gitlens.autolinks": [
     {
       "prefix": "ROC-",
-      "url": "https://rockbot.atlassian.net/browse/<num>"
-    }
+      "url": "https://rockbot.atlassian.net/browse/<num>",
+    },
   ],
   "workbench.activityBar.location": "top",
   "testing.automaticallyOpenTestResults": "neverOpen",
   "window.newWindowProfile": "Default",
   "[hosts]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
+    "editor.defaultFormatter": "foxundermoon.shell-format",
   },
   "[github-actions-workflow]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
+    "editor.defaultFormatter": "redhat.vscode-yaml",
   },
   // TELEMETRY SECTION
-  "telemetry.enableTelemetry": false,
   "telemetry.telemetryLevel": "off",
   "redhat.telemetry.enabled": false,
   "rest-client.enableTelemetry": false,
@@ -396,40 +380,46 @@
   "editor.semanticHighlighting.enabled": true,
   "window.titleBarStyle": "custom",
   "gopls": {
-    "ui.semanticTokens": true
+    "ui.semanticTokens": true,
   },
   "catppuccin.accentColor": "mauve",
   // ------------------------------------------
   "projectManager.git.baseFolders": ["~/Projects"],
   "[markdown]": {
-    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
   },
   "[lua]": {
-    "editor.defaultFormatter": "JohnnyMorganz.stylua"
+    "editor.defaultFormatter": "JohnnyMorganz.stylua",
   },
   "Lua.diagnostics.globals": ["vim"],
   "github.copilot.nextEditSuggestions.enabled": true,
   "[ini]": {
-    "editor.defaultFormatter": "lkrms.inifmt"
+    "editor.defaultFormatter": "lkrms.inifmt",
   },
   "[gitconfig]": {
-    "editor.defaultFormatter": "yy0931.gitconfig-lsp"
+    "editor.defaultFormatter": "yy0931.gitconfig-lsp",
   },
   "markdownlint.configFile": "~/.markdownlint.yaml",
   "makefile.configureOnOpen": false,
   "[makefile]": {
-    "editor.defaultFormatter": "eshojaei.mbake-makefile-formatter"
+    "editor.defaultFormatter": "eshojaei.mbake-makefile-formatter",
   },
   "chat.mcp.gallery.enabled": true,
   "chat.mcp.serverSampling": {
     "Global in Code: io.github.upstash/context7": {
-      "allowedModels": ["copilot/gpt-5-mini", "copilot/auto"]
-    }
+      "allowedModels": ["copilot/gpt-5-mini", "copilot/auto"],
+    },
   },
   "chat.mcp.discovery.enabled": {
     "claude-desktop": true,
     "windsurf": true,
     "cursor-global": true,
-    "cursor-workspace": true
-  }
+    "cursor-workspace": true,
+  },
+  "[sql]": {
+    "editor.defaultFormatter": "dorzey.vscode-sqlfluff",
+  },
+  "sqlfluff.dialect": "postgres",
+  "dataWrangler.experiments.autoDetectCsvDelimiter": true,
+  "dataWrangler.defaultViewingFilterOptions": "advanced",
 }

@@ -6,15 +6,6 @@
 lnse $DOT_FILES/zsh/tools/starship/starship.toml $HOME/.config/starship.toml
 ```
 
-## Warp [themes](https://docs.warp.dev/terminal/appearance/custom-themes#how-do-i-use-a-custom-theme-in-warp)
-
-### Fallout custom theme with image background
-
-```sh
-mkdir -p $HOME/.warp/themes
-lnse $DOT_FILES/zsh/tools/warp/themes/fallout $HOME/.warp/themes/fallout
-```
-
 ## Yazi + Catppuccin [theme](https://github.com/yazi-rs/flavors)
 
 ```sh

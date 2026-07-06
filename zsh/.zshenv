@@ -48,3 +48,8 @@ export FORGIT_DIR_VIEW="lsd --almost-all --long --git --group-directories-first 
 
 # Rustup and Cargo
 source "$HOME/.cargo/env"
+# Jan Local API Server - Claude Code Config
+export ANTHROPIC_BASE_URL='http://127.0.0.1:1337'
+export ANTHROPIC_AUTH_TOKEN='jan'
+
+# Jan Local API Server - Claude Code Config

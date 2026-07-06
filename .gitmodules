@@ -4,9 +4,6 @@
 [submodule "zsh/external/catppuccin-lsd"]
 	path = zsh/external/catppuccin-lsd
 	url = https://github.com/catppuccin/lsd
-[submodule "zsh/external/catppuccin-warp"]
-	path = zsh/external/catppuccin-warp
-	url = https://github.com/catppuccin/warp
 [submodule "zsh/external/catppuccin-ghostty"]
 	path = zsh/external/catppuccin-ghostty
 	url = https://github.com/catppuccin/ghostty
@@ -52,3 +49,9 @@
 [submodule "zsh/external/tmux-tpm"]
 	path = zsh/external/tmux-tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "zsh/external/catppuccin-thunderbird"]
+	path = zsh/external/catppuccin-thunderbird
+	url = https://github.com/catppuccin/thunderbird
+[submodule "zsh/external/catppuccin-btop"]
+	path = zsh/external/catppuccin-btop
+	url = https://github.com/catppuccin/btop

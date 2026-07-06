@@ -33,7 +33,8 @@ else
 fi
 
 # Setup 'ls <tab>' to use catppuccin theme
-export LS_COLORS="$(vivid generate catppuccin-mocha)"
+# export LS_COLORS="$(vivid generate catppuccin-frappe)" # original unmodified theme
+export LS_COLORS="$(vivid generate ~/Projects/dotfiles/zsh/tools/vivid/proxy-catppuccin-frappe.yml)"
 export ZLS_COLORS="$LS_COLORS"
 
 zmodload zsh/complist
@@ -45,6 +46,7 @@ export SPROMPT=$'zsh: correct \e[38;2;231;130;132m%R\e[0m to \e[38;2;166;209;137
 ## Completions
 source_if_exists $HOMEBREW_PREFIX/share/forgit/forgit.plugin.zsh
 source_if_exists $DOT_FILES/zsh/tools/pnpm/completion-for-pnpm.zsh
+source_if_exists $DOT_FILES/zsh/tools/opencode/completion-for-opencode.zsh
 source_if_exists $DOT_FILES/zsh/tools/ngrok/completion-for-ngrok.zsh
 if command -v ngrok &>/dev/null; then
   eval "$(ngrok completion)"

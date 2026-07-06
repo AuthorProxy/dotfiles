@@ -32,10 +32,10 @@ y() {
 	rm -f -- "$tmp"
 }
 
-# Warp ai agent helper ##
+# OpenCode ai helper
 # ex.:> ai open hosts file
 ai() {
-	warp agent run --prompt "$*"
+  opencode run "$*"
 }
 
 # Fancy Z snippet ##

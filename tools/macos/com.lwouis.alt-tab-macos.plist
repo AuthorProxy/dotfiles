@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>MSAppCenter310AppCenterUserDefaultsMigratedKey</key>
+	<true/>
+	<key>MSAppCenter310CrashesUserDefaultsMigratedKey</key>
+	<true/>
+	<key>MSAppCenterAppDidReceiveMemoryWarning</key>
+	<true/>
+	<key>MSAppCenterInstallId</key>
+	<string>94C29A21-FC44-45C9-A44B-9B52A67870E1</string>
+	<key>MSAppCenterNetworkRequestsAllowed</key>
+	<false/>
+	<key>MSAppCenterPastDevices</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGvEBULDBIYHCJQUVJTVFVWV1hZ
+	WltcYWZVJG51bGzSDQ4PEVpOUy5vYmplY3RzViRjbGFzc6EQgAKAFNMTFA4VFhdcdGlt
+	ZXN0YW1wS2V5WWRldmljZUtleYADgAWAE9IZDhobV05TLnRpbWUjQcfeR75UiduABNId
+	Hh8gWiRjbGFzc25hbWVYJGNsYXNzZXNWTlNEYXRloh8hWE5TT2JqZWN03xAXIyQlJg4n
+	KCkqKywtLi8wMTIzNDU2Nzg5Ojs8PTs8PEFCPDw8PEdISUo8PE1OT1lvc1ZlcnNpb25e
+	dGltZVpvbmVPZmZzZXRYYXBwQnVpbGRfEBVsaXZlVXBkYXRlUGFja2FnZUhhc2haYXBw
+	VmVyc2lvbl8QEXdyYXBwZXJTZGtWZXJzaW9uW2NhcnJpZXJOYW1lV3Nka05hbWVWbG9j
+	YWxlXxAXbGl2ZVVwZGF0ZURlcGxveW1lbnRLZXleY2FycmllckNvdW50cnlab3NBcGlM
+	ZXZlbF53cmFwcGVyU2RrTmFtZVdvZW1OYW1lWnNka1ZlcnNpb25cYXBwTmFtZXNwYWNl
+	VW1vZGVsXxAVd3JhcHBlclJ1bnRpbWVWZXJzaW9uXxAWbGl2ZVVwZGF0ZVJlbGVhc2VM
+	YWJlbFpzY3JlZW5TaXplVm9zTmFtZVdvc0J1aWxkgAuADoAQgACAEoAQgACAAIAGgA2A
+	AIAAgACAAIAJgAeAEYAIgACAAIAPgAqADF8QD2FwcGNlbnRlci5tYWNvc1U0LjMuMF5N
+	YWNCb29rUHJvMTgsM1VBcHBsZVVtYWNPU1YyNi40LjFWMjVFMjUzVWVuX1JVELRZMTky
+	MHgxMDgwVzEwLjEyLjBfEBhjb20ubHdvdWlzLmFsdC10YWItbWFjb3PSHR5dXlpNU0FD
+	RGV2aWNlo19gIVpNU0FDRGV2aWNlXk1TQUNXcmFwcGVyU2Rr0h0eYmNfEBVNU0FDRGV2
+	aWNlSGlzdG9yeUluZm+jZGUhXxAVTVNBQ0RldmljZUhpc3RvcnlJbmZvXxAPTVNBQ0hp
+	c3RvcnlJbmZv0h0eZ2heTlNNdXRhYmxlQXJyYXmjZ2khV05TQXJyYXkACAARABoAJAAp
+	ADIANwBJAEwAUQBTAGsAcQB2AIEAiACKAIwAjgCVAKIArACuALAAsgC3AL8AyADKAM8A
+	2gDjAOoA7QD2AScBMQFAAUkBYQFsAYABjAGUAZsBtQHEAc8B3gHmAfEB/gIEAhwCNQJA
+	AkcCTwJRAlMCVQJXAlkCWwJdAl8CYQJjAmUCZwJpAmsCbQJvAnECcwJ1AncCeQJ7An0C
+	jwKVAqQCqgKwArcCvgLEAsYC0ALYAvMC+AMDAwcDEgMhAyYDPgNCA1oDbANxA4ADhAAA
+	AAAAAAIBAAAAAAAAAGoAAAAAAAAAAAAAAAAAAAOM
+	</data>
+	<key>MSAppCenterSessionIdHistory</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGnCwwSGBwiJ1UkbnVsbNINDg8R
+	Wk5TLm9iamVjdHNWJGNsYXNzoRCAAoAG0xMUDhUWF1x0aW1lc3RhbXBLZXlcc2Vzc2lv
+	bklkS2V5gAOAAIAF0hkOGhtXTlMudGltZSNBx95HvlKQNoAE0h0eHyBaJGNsYXNzbmFt
+	ZVgkY2xhc3Nlc1ZOU0RhdGWiHyFYTlNPYmplY3TSHR4jJF8QFk1TQUNTZXNzaW9uSGlz
+	dG9yeUluZm+jJSYhXxAWTVNBQ1Nlc3Npb25IaXN0b3J5SW5mb18QD01TQUNIaXN0b3J5
+	SW5mb9IdHigpXk5TTXV0YWJsZUFycmF5oygqIVdOU0FycmF5AAgAEQAaACQAKQAyADcA
+	SQBMAFEAUwBbAGEAZgBxAHgAegB8AH4AhQCSAJ8AoQCjAKUAqgCyALsAvQDCAM0A1gDd
+	AOAA6QDuAQcBCwEkATYBOwFKAU4AAAAAAAACAQAAAAAAAAArAAAAAAAAAAAAAAAAAAAB
+	Vg==
+	</data>
+	<key>MSAppCenterUserIdHistory</key>
+	<data>
+	YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMS
+	AAGGoF8QD05TS2V5ZWRBcmNoaXZlctEICVRyb290gAGnCwwSGBwiJ1UkbnVsbNINDg8R
+	Wk5TLm9iamVjdHNWJGNsYXNzoRCAAoAG0xMUDhUWF1x0aW1lc3RhbXBLZXlZdXNlcklk
+	S2V5gAOAAIAF0hkOGhtXTlMudGltZSNBx95HvlKdlYAE0h0eHyBaJGNsYXNzbmFtZVgk
+	Y2xhc3Nlc1ZOU0RhdGWiHyFYTlNPYmplY3TSHR4jJF8QFU1TQUNVc2VySWRIaXN0b3J5
+	SW5mb6MlJiFfEBVNU0FDVXNlcklkSGlzdG9yeUluZm9fEA9NU0FDSGlzdG9yeUluZm/S
+	HR4oKV5OU011dGFibGVBcnJheaMoKiFXTlNBcnJheQAIABEAGgAkACkAMgA3AEkATABR
+	AFMAWwBhAGYAcQB4AHoAfAB+AIUAkgCcAJ4AoACiAKcArwC4ALoAvwDKANMA2gDdAOYA
+	6wEDAQcBHwExATYBRQFJAAAAAAAAAgEAAAAAAAAAKwAAAAAAAAAAAAAAAAAAAVE=
+	</data>
+	<key>NSNavPanelExpandedStateForSaveMode</key>
+	<true/>
+	<key>NSOSPLastRootDirectory</key>
+	<data>
+	Ym9va/wCAAAAAAUQQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+	AAAAAAAAAAAAAAAAANwBAAAEAAAAAwMAAAAAACAFAAAAAQEAAFVzZXJzAAAACwAAAAEB
+	AABhdXRob3Jwcm94eQAIAAAAAQEAAFByb2plY3RzCAAAAAEBAABkb3RmaWxlcwUAAAAB
+	AQAAdG9vbHMAAAAUAAAAAQYAABAAAAAgAAAANAAAAEQAAABUAAAACAAAAAQDAAAVXQAA
+	AAAAAAgAAAAEAwAAHvADAAAAAAAIAAAABAMAACZXGQAAAAAACAAAAAQDAABlYOUEAAAA
+	AAgAAAAEAwAAz19BFgAAAAAUAAAAAQYAAIAAAACQAAAAoAAAALAAAADAAAAACAAAAAAE
+	AABBx3BnaF5QYRgAAAABAgAAAgAAAAAAAAAPAAAAAAAAAAAAAAAAAAAAAAAAAAEFAAAI
+	AAAABAMAAAMAAAAAAAAABAAAAAMDAAD1AQAACAAAAAEJAABmaWxlOi8vLwwAAAABAQAA
+	TWFjaW50b3NoIEhECAAAAAQDAAAAkIKW5wAAAAgAAAAABAAAQcfB0QiAAAAkAAAAAQEA
+	AEVBQURDN0M2LUVCMjktNEI4NC04RTk4LTNCOTdGMURCQ0RFMhgAAAABAgAAgQAAAAEA
+	AADvEwAAAQAAAAAAAAAAAAAAAQAAAAEBAAAvAAAA2AAAAP7///8BAAAAAAAAABEAAAAE
+	EAAAZAAAAAAAAAAFEAAA0AAAAAAAAAAQEAAA/AAAAAAAAABAEAAA7AAAAAAAAAACIAAA
+	0AEAAAAAAAAFIAAAQAEAAAAAAAAQIAAAUAEAAAAAAAARIAAAhAEAAAAAAAASIAAAZAEA
+	AAAAAAATIAAAdAEAAAAAAAAgIAAAsAEAAAAAAAAwIAAAHAEAAAAAAAABwAAAJAEAAAAA
+	AAARwAAAIAAAAAAAAAASwAAANAEAAAAAAAAB0AAAHAEAAAAAAAAQ0AAABAAAAAAAAAA=
+	</data>
+	<key>NSStatusItem Preferred Position Item-0</key>
+	<real>11512</real>
+	<key>NSWindow Frame NSSpellCheckerSpellingPanel</key>
+	<string>570 429 431 290 0 0 1920 1049 </string>
+	<key>NSWindow Frame NSSpellCheckerSubstitutionsPanel2</key>
+	<string>692 394 359 150 0 0 1920 1049 </string>
+	<key>NSWindow Frame SUAutomaticUpdateAlert</key>
+	<string>2572 649 616 184 1920 0 1920 1050 </string>
+	<key>NSWindow Frame SUStatusFrame</key>
+	<string>2680 683 400 139 1920 0 1920 1050 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>2570 511 620 398 1920 0 1920 1080 </string>
+	<key>NSWindow Frame SettingsWindow</key>
+	<string>1920 71 918 534 1920 0 1920 1050 </string>
+	<key>SUAutomaticallyUpdate</key>
+	<false/>
+	<key>SUEnableAutomaticChecks</key>
+	<false/>
+	<key>SUHasLaunchedBefore</key>
+	<true/>
+	<key>SULastCheckTime</key>
+	<date>2026-05-19T12:42:48Z</date>
+	<key>SUUpdateGroupIdentifier</key>
+	<integer>1702426716</integer>
+	<key>SUUpdateRelaunchingMarker</key>
+	<false/>
+	<key>alignThumbnails</key>
+	<string>0</string>
+	<key>appearanceSize</key>
+	<string>1</string>
+	<key>appearanceStyle</key>
+	<string>0</string>
+	<key>appearanceTheme</key>
+	<string>2</string>
+	<key>appearanceVisibility</key>
+	<string>0</string>
+	<key>crashPolicy</key>
+	<string>0</string>
+	<key>cursorFollowFocus</key>
+	<string>0</string>
+	<key>exceptions</key>
+	<string>[{"bundleIdentifier":"com.McAfee.McAfeeSafariHost","ignore":"0","hide":"1"},{"bundleIdentifier":"com.apple.finder","ignore":"0","hide":"2"},{"bundleIdentifier":"com.microsoft.rdc.macos","ignore":"2","hide":"0"},{"bundleIdentifier":"com.teamviewer.TeamViewer","ignore":"2","hide":"0"},{"bundleIdentifier":"org.virtualbox.app.VirtualBoxVM","ignore":"2","hide":"0"},{"bundleIdentifier":"com.parallels.","ignore":"2","hide":"0"},{"bundleIdentifier":"com.citrix.XenAppViewer","ignore":"2","hide":"0"},{"bundleIdentifier":"com.citrix.receiver.icaviewer.mac","ignore":"2","hide":"0"},{"bundleIdentifier":"com.nicesoftware.dcvviewer","ignore":"2","hide":"0"},{"bundleIdentifier":"com.vmware.fusion","ignore":"2","hide":"0"},{"bundleIdentifier":"com.apple.ScreenSharing","ignore":"2","hide":"0"},{"bundleIdentifier":"com.utmapp.UTM","ignore":"2","hide":"0"}]</string>
+	<key>fadeOutAnimation</key>
+	<string>true</string>
+	<key>hideAppBadges</key>
+	<string>false</string>
+	<key>hideColoredCircles</key>
+	<string>false</string>
+	<key>hideSpaceNumberLabels</key>
+	<string>false</string>
+	<key>hideStatusIcons</key>
+	<string>false</string>
+	<key>menubarIcon</key>
+	<string>0</string>
+	<key>mouseHoverEnabled</key>
+	<string>true</string>
+	<key>preferencesVersion</key>
+	<string>10.12.0</string>
+	<key>previewFocusedWindow</key>
+	<string>true</string>
+	<key>screenRecordingPermissionSkipped</key>
+	<string>false</string>
+	<key>settingsWindowShownOnFirstLaunch</key>
+	<string>true</string>
+	<key>shortcutCount</key>
+	<string>3</string>
+	<key>shortcutStyle</key>
+	<string>0</string>
+	<key>showAppsOrWindows</key>
+	<string>1</string>
+	<key>showTabsAsWindows</key>
+	<string>false</string>
+	<key>showTitles</key>
+	<string>0</string>
+	<key>titleTruncation</key>
+	<string>2</string>
+	<key>updatePolicy</key>
+	<string>0</string>
+	<key>windowDisplayDelay</key>
+	<string>100</string>
+</dict>
+</plist>

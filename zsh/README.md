@@ -28,11 +28,13 @@
 - nvm - node version manager
 - nvim (neovim) - hyperextensible Vim-based text editor
 - ngrock - secure tunnels to localhost
-- vivd - generator for LS_COLORS env variable
-- warp-cli - AI-powered terminal
+- vivid - generator for LS_COLORS env variable
 - rustup - rust lang installer
 - stylelint - linter for css files (required by extensions)
 - mbake - linter for make files (required by extensions)
+- pandoc - tool for PDF manipulation
+- ffmpeg - tool for video/audio manipulation
+- exiftool - tool for reading and editing file metadata
 
 ### NeoVim and LazyVim dependencies (not listed before)
 
@@ -48,10 +50,9 @@
 
 - brew tap microsoft/git && brew install git && brew install --cask git-credential-manager-core
 - brew install starship lazygit nvm neovim ngrok vivid stylelint
-- brew tap warpdotdev/warp && brew update && brew install --cask warp-cli
 - brew install rustup && $(brew --prefix rustup)/bin/rustup-init
 - brew install make gawk fzf lsd eza bat ripgrep rga ast-grep mtr fd jq yq git-delta procs zoxide
-- brew install pandoc poppler ffmpeg
+- brew install pandoc poppler ffmpeg exiftool
 - pip3 install mbake
 
 ### NeoVim/LazyVim dependencies
